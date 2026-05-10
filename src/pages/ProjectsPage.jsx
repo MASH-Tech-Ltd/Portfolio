@@ -6,7 +6,6 @@ export default function ProjectsPage() {
   return (
     <Layout>
       <Projects />
-      <Contact />
     </Layout>
   );
 }

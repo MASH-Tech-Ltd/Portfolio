@@ -6,7 +6,6 @@ export default function TeamPage() {
   return (
     <Layout>
       <Members />
-      <Contact />
     </Layout>
   );
 }
