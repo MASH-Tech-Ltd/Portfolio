@@ -7,7 +7,9 @@ const stats = [
   { value: '10+', label: 'Awards Received', icon: <Award size={32} /> },
 ];
 
-export default function About() {
+import { Link } from 'react-router-dom';
+
+export default function About({ minimal = false }) {
   return (
     <section id="about" style={{ padding: '5rem 0' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 1.5rem' }}>
@@ -27,13 +29,21 @@ export default function About() {
               We are passionate about helping businesses grow and succeed in the digital age.
               We take pride in our work and strive to exceed your expectations every time.
             </p>
-            <p style={{ color: '#64748b', lineHeight: 1.8, marginBottom: '1.75rem' }}>
-              Our dedicated team of designers, developers, and strategists collaborate
-              to deliver premium digital solutions that drive real business results.
-            </p>
-            <a href="#contact" className="btn-primary" style={{ textDecoration: 'none', width: 'fit-content' }}>
-              Work With Us
-            </a>
+            {!minimal && (
+              <p style={{ color: '#64748b', lineHeight: 1.8, marginBottom: '1.75rem' }}>
+                Our dedicated team of designers, developers, and strategists collaborate
+                to deliver premium digital solutions that drive real business results.
+              </p>
+            )}
+            {minimal ? (
+              <Link to="/about" className="btn-primary" style={{ textDecoration: 'none', width: 'fit-content' }}>
+                See More About Us
+              </Link>
+            ) : (
+              <a href="#contact" className="btn-primary" style={{ textDecoration: 'none', width: 'fit-content' }}>
+                Work With Us
+              </a>
+            )}
           </div>
 
           {/* Right – stats */}

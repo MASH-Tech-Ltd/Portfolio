@@ -5,11 +5,12 @@ import {
   SiExpress, SiMongodb, SiFirebase, SiStripe, SiNginx,
   SiGoogleanalytics, SiGooglesearchconsole, SiGraphql,
   SiDigitalocean, SiGithubactions, SiCloudflare,
+  SiPostgresql, SiPrisma, SiPostman
 } from 'react-icons/si';
 import {
   Globe, Cloud, CreditCard, MessageSquare,
   Search, TrendingUp, BarChart2, Link2, ShieldCheck, Server,
-  Layers, Monitor, Settings, Rocket, LineChart
+  Layers, Monitor, Settings, Rocket, LineChart, Database, Compass
 } from 'lucide-react';
 
 const ALL_TECHS = [
@@ -24,9 +25,14 @@ const ALL_TECHS = [
   { name: 'Node.js',        icon: <FaNodeJs />,                 color: '#68a063',  cat: 'backend'  },
   { name: 'Express',        icon: <SiExpress />,                color: '#cccccc',  cat: 'backend'  },
   { name: 'MongoDB',        icon: <SiMongodb />,                color: '#47a248',  cat: 'backend'  },
+  { name: 'PostgreSQL',     icon: <SiPostgresql />,             color: '#336791',  cat: 'backend'  },
+  { name: 'Prisma',         icon: <SiPrisma />,                 color: '#ffffff',  cat: 'backend'  },
+  { name: 'SQL',            icon: <Database />,                 color: '#f8981d',  cat: 'backend'  },
   { name: 'Firebase',       icon: <SiFirebase />,               color: '#ffca28',  cat: 'backend'  },
   { name: 'JWT',            icon: <ShieldCheck />,              color: '#d63aff',  cat: 'backend'  },
-  { name: 'GraphQL',        icon: <SiGraphql />,                color: '#e10098',  cat: 'backend'  },
+  // { name: 'GraphQL',        icon: <SiGraphql />,                color: '#e10098',  cat: 'backend'  },
+  { name: 'Postman',        icon: <SiPostman />,                color: '#FF6C37',  cat: 'backend'  },
+  { name: 'Compass',        icon: <Compass />,                  color: '#47A248',  cat: 'backend'  },
   // Server & Deploy
   { name: 'Docker',         icon: <FaDocker />,                 color: '#2496ed',  cat: 'server'   },
   { name: 'Nginx',          icon: <SiNginx />,                  color: '#009900',  cat: 'server'   },

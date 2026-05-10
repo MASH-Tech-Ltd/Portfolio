@@ -54,7 +54,14 @@ body {
 .fade-up { animation: fadeUp .7s ease forwards; }
 
 @keyframes spin-slow { to { transform: rotate(360deg); } }
-.spin-slow { animation: spin-slow 12s linear infinite; }
+.spin-60 { animation: spin-slow 60s linear infinite; }
+.spin-60-reverse { animation: spin-slow 60s linear infinite reverse; }
+.spin-45 { animation: spin-slow 45s linear infinite; }
+.spin-45-reverse { animation: spin-slow 45s linear infinite reverse; }
+.spin-30 { animation: spin-slow 30s linear infinite; }
+.spin-30-reverse { animation: spin-slow 30s linear infinite reverse; }
+.spin-20 { animation: spin-slow 20s linear infinite; }
+.spin-20-reverse { animation: spin-slow 20s linear infinite reverse; }
 
 @keyframes modalFadeIn {
   from { opacity: 0; }

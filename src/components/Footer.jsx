@@ -1,23 +1,24 @@
 import { ArrowRight, Facebook, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const quickLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Tech Stack', href: '#tech' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Team', href: '#members' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Team', href: '/team' },
+  { label: 'Career', href: '/career' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const serviceLinks = [
-  { label: 'Web App Development', href: '#services' },
-  { label: 'Web Management', href: '#services' },
-  { label: 'App Development', href: '#services' },
-  { label: 'UI/UX Design', href: '#services' },
-  { label: 'SEO Optimization', href: '#services' },
-  { label: 'Backend Development', href: '#services' },
-  { label: 'Server Management', href: '#services' },
-  { label: 'Cloud & DevOps', href: '#services' },
+  { label: 'Web App Development', href: '/services' },
+  { label: 'Web Management', href: '/services' },
+  { label: 'App Development', href: '/services' },
+  { label: 'UI/UX Design', href: '/services' },
+  { label: 'SEO Optimization', href: '/services' },
+  { label: 'Backend Development', href: '/services' },
+  { label: 'Server Management', href: '/services' },
+  { label: 'Cloud & DevOps', href: '/services' },
 ];
 
 const socials = [
@@ -42,9 +43,9 @@ export default function Footer() {
 
           {/* Brand column */}
           <div style={{ maxWidth: 280 }}>
-            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', marginBottom: '1rem' }}>
+            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', marginBottom: '1rem' }}>
               <img src="/logo.png" alt="MASH Tech Ltd" style={{ height: 44, width: 'auto', objectFit: 'contain', borderRadius: '50%' }} />
-            </a>
+            </Link>
             <p style={{ color: '#475569', fontSize: '.875rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
               Smart digital solutions for businesses of all sizes. We turn ideas into powerful digital experiences.
             </p>
@@ -71,11 +72,11 @@ export default function Footer() {
             <ul style={{ listStyle: 'none' }}>
               {quickLinks.map((l, i) => (
                 <li key={i} style={{ marginBottom: '.75rem' }}>
-                  <a href={l.href} style={{ color: '#475569', textDecoration: 'none', fontSize: '.875rem', transition: 'color .2s', display: 'flex', alignItems: 'center', gap: 6 }}
+                  <Link to={l.href} style={{ color: '#475569', textDecoration: 'none', fontSize: '.875rem', transition: 'color .2s', display: 'flex', alignItems: 'center', gap: 6 }}
                     onMouseEnter={e => e.currentTarget.style.color = '#3b82f6'}
                     onMouseLeave={e => e.currentTarget.style.color = '#475569'}>
                     <ArrowRight size={13} /> {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -87,11 +88,11 @@ export default function Footer() {
             <ul style={{ listStyle: 'none' }}>
               {serviceLinks.map((l, i) => (
                 <li key={i} style={{ marginBottom: '.75rem' }}>
-                  <a href={l.href} style={{ color: '#475569', textDecoration: 'none', fontSize: '.875rem', transition: 'color .2s', display: 'flex', alignItems: 'center', gap: 6 }}
+                  <Link to={l.href} style={{ color: '#475569', textDecoration: 'none', fontSize: '.875rem', transition: 'color .2s', display: 'flex', alignItems: 'center', gap: 6 }}
                     onMouseEnter={e => e.currentTarget.style.color = '#3b82f6'}
                     onMouseLeave={e => e.currentTarget.style.color = '#475569'}>
                     <ArrowRight size={13} /> {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -126,13 +127,21 @@ export default function Footer() {
             © {new Date().getFullYear()} MASH Tech Ltd. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((t, i) => (
-              <a key={i} href="#" style={{ color: '#334155', fontSize: '.825rem', textDecoration: 'none', transition: 'color .2s' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#3b82f6'}
-                onMouseLeave={e => e.currentTarget.style.color = '#334155'}>
-                {t}
-              </a>
-            ))}
+            <Link to="/privacy" style={{ color: '#334155', fontSize: '.825rem', textDecoration: 'none', transition: 'color .2s' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#3b82f6'}
+              onMouseLeave={e => e.currentTarget.style.color = '#334155'}>
+              Privacy Policy
+            </Link>
+            <Link to="/terms" style={{ color: '#334155', fontSize: '.825rem', textDecoration: 'none', transition: 'color .2s' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#3b82f6'}
+              onMouseLeave={e => e.currentTarget.style.color = '#334155'}>
+              Terms of Service
+            </Link>
+            <Link to="/cookies" style={{ color: '#334155', fontSize: '.825rem', textDecoration: 'none', transition: 'color .2s' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#3b82f6'}
+              onMouseLeave={e => e.currentTarget.style.color = '#334155'}>
+              Cookie Policy
+            </Link>
           </div>
         </div>
       </div>

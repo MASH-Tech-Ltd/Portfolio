@@ -17,12 +17,12 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Brands />
-      <Services />
+      <Services minimal={true} />
       <TechStack />
-      <About />
-      <Projects />
-      <Career />
-      <Members />
+      <About minimal={true} />
+      <Projects minimal={true} />
+      <Career minimal={true} />
+      <Members minimal={true} />
       <Contact />
       <Testimonials />
       <Footer />

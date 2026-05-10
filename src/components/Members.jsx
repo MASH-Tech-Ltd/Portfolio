@@ -58,8 +58,11 @@ const members = [
   },
 ];
 
-export default function Members() {
+import { Link } from 'react-router-dom';
+
+export default function Members({ minimal = false }) {
   const [selected, setSelected] = useState(null);
+  const displayMembers = minimal ? members.slice(0, 6) : members;
 
   return (
     <section id="members" style={{ padding: '5rem 0' }}>
@@ -82,7 +85,7 @@ export default function Members() {
           gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
           gap: '1.75rem'
         }}>
-          {members.map((m, i) => (
+          {displayMembers.map((m, i) => (
             <div
               key={i}
               className="glass-card member-card"
@@ -166,6 +169,14 @@ export default function Members() {
             </div>
           ))}
         </div>
+
+        {minimal && (
+          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+            <Link to="/team" className="btn-primary" style={{ textDecoration: 'none' }}>
+              Meet Full Team
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Modal */}

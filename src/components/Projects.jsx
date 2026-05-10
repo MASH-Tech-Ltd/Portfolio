@@ -42,10 +42,13 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+import { Link } from 'react-router-dom';
+
+export default function Projects({ minimal = false }) {
   const [active, setActive] = useState('All');
   const [selected, setSelected] = useState(null);
   const filtered = active === 'All' ? projects : projects.filter(p => p.cat === active);
+  const displayProjects = minimal ? filtered.slice(0, 6) : filtered;
 
   return (
     <section id="projects" className="section-alt" style={{ padding: '5rem 0' }}>
@@ -63,17 +66,19 @@ export default function Projects() {
         </div>
 
         {/* Filter */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '.75rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
-          {categories.map(c => (
-            <button key={c} className={`filter-btn ${active === c ? 'active' : ''}`} onClick={() => setActive(c)}>
-              {c}
-            </button>
-          ))}
-        </div>
+        {!minimal && (
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '.75rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+            {categories.map(c => (
+              <button key={c} className={`filter-btn ${active === c ? 'active' : ''}`} onClick={() => setActive(c)}>
+                {c}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))', gap: '1.5rem' }}>
-          {filtered.map((p, i) => (
+          {displayProjects.map((p, i) => (
             <div key={i} className="project-card" onClick={() => setSelected(p)}>
               {/* Placeholder image area */}
               <div style={{
@@ -103,6 +108,14 @@ export default function Projects() {
             </div>
           ))}
         </div>
+
+        {minimal && (
+          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+            <Link to="/projects" className="btn-primary" style={{ textDecoration: 'none' }}>
+              See All Projects
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Modal */}

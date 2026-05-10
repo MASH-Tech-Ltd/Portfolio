@@ -1,9 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LayoutDashboard, FolderKanban, Users, Briefcase, Settings, LogOut } from 'lucide-react';
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('dashboard');
-  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isAdmin = localStorage.getItem('isAdmin');
+    if (!isAdmin) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('isAdmin');
+    navigate('/login');
+  };
+
   const tabs = [
     { id: 'dashboard', label: 'Overview', icon: <LayoutDashboard size={20} /> },
     { id: 'projects', label: 'Manage Projects', icon: <FolderKanban size={20} /> },
@@ -42,7 +56,10 @@ export default function AdminDashboard() {
           ))}
         </nav>
 
-        <button style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', background: 'transparent', color: '#ef4444', border: 'none', borderRadius: 8, cursor: 'pointer', textAlign: 'left', fontSize: '0.95rem', fontWeight: 600, marginTop: 'auto' }}>
+        <button 
+          onClick={handleLogout}
+          style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', background: 'transparent', color: '#ef4444', border: 'none', borderRadius: 8, cursor: 'pointer', textAlign: 'left', fontSize: '0.95rem', fontWeight: 600, marginTop: 'auto' }}
+        >
           <LogOut size={20} />
           Logout
         </button>

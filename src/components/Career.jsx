@@ -3,36 +3,75 @@ import { Briefcase, ArrowRight, MapPin, Clock, X, CheckCircle2 } from 'lucide-re
 
 const jobs = [
   {
+    id: 'seo-specialist',
+    title: 'SEO Specialist',
+    type: 'Full-Time',
+    location: 'Dhaka / Remote',
+    desc: 'Drive organic growth for our clients through advanced SEO strategies.',
+    vision: '"Drive organic growth for our clients through advanced SEO strategies and data-driven content optimization."',
+    responsibilities: [
+      'Conduct keyword research and competitive analysis',
+      'Optimize on-page and technical SEO for client sites',
+      'Build quality backlinks and develop content strategies',
+      'Track rankings and traffic using Google Analytics & Search Console'
+    ],
+    requirements: [
+      '2+ years of SEO experience with proven results',
+      'Proficiency in Ahrefs, SEMrush, and Screaming Frog',
+      'Strong knowledge of Core Web Vitals and E-E-A-T',
+      'Experience with WordPress and basic HTML/CSS'
+    ],
+    link: '#'
+  },
+  {
+    id: 'senior-frontend-engineer',
     title: 'Senior Frontend Engineer',
     type: 'Full-Time',
     location: 'Remote',
     desc: 'Join our team to build highly interactive, performant web applications using React and Next.js.',
-    longDesc: 'We are seeking an experienced Frontend Engineer who is passionate about creating beautiful, high-performance web applications. You will work closely with our design and backend teams to deliver exceptional user experiences from end to end.',
-    requirements: ['5+ years of experience with React.js', 'Deep understanding of Next.js and Server-Side Rendering', 'Proficiency in TypeScript and modern JavaScript', 'Experience with Tailwind CSS and responsive design'],
+    vision: '"Craft pixel-perfect, highly responsive, and accessible user interfaces that delight our clients and their users."',
+    responsibilities: [
+      'Develop new user-facing features using React.js and Next.js',
+      'Build reusable components and front-end libraries for future use',
+      'Translate designs and wireframes into high-quality code',
+      'Optimize components for maximum performance across web-capable devices'
+    ],
+    requirements: [
+      '5+ years of experience with React.js',
+      'Deep understanding of Next.js and Server-Side Rendering',
+      'Proficiency in TypeScript and modern JavaScript',
+      'Experience with Tailwind CSS and responsive design'
+    ],
     link: '#'
   },
   {
+    id: 'backend-nodejs-developer',
     title: 'Backend Node.js Developer',
     type: 'Full-Time',
     location: 'Dhaka, Bangladesh / Remote',
     desc: 'Design and implement scalable APIs and microservices. Experience with MongoDB and AWS required.',
-    longDesc: 'As a Backend Developer, you will be responsible for architecting and building robust, scalable APIs. You will play a critical role in ensuring our services are secure, fast, and capable of handling high traffic volumes.',
-    requirements: ['Strong proficiency in Node.js and Express', 'Experience designing RESTful and GraphQL APIs', 'Expertise with MongoDB and database optimization', 'Familiarity with AWS, Docker, and CI/CD pipelines'],
-    link: '#'
-  },
-  {
-    title: 'UI/UX Product Designer',
-    type: 'Contract',
-    location: 'Remote',
-    desc: 'Create beautiful, user-centric designs and design systems using Figma.',
-    longDesc: 'We are looking for a creative UI/UX Designer to shape the visual identity of our products. You will be responsible for translating user needs and business goals into intuitive, pixel-perfect interfaces.',
-    requirements: ['Proven track record of designing modern web applications', 'Expertise in Figma and creating scalable design systems', 'Strong understanding of user-centered design principles', 'Ability to create interactive prototypes and user flows'],
+    vision: '"Architect the invisible backbone of our applications, ensuring maximum speed, scalability, and security."',
+    responsibilities: [
+      'Design and build robust, scalable RESTful and GraphQL APIs',
+      'Integrate user-facing elements developed by front-end developers with server-side logic',
+      'Implement security and data protection measures',
+      'Design and implement data storage solutions using MongoDB'
+    ],
+    requirements: [
+      'Strong proficiency in Node.js and Express',
+      'Experience designing RESTful and GraphQL APIs',
+      'Expertise with MongoDB and database optimization',
+      'Familiarity with AWS, Docker, and CI/CD pipelines'
+    ],
     link: '#'
   }
 ];
 
-export default function Career() {
+import { Link } from 'react-router-dom';
+
+export default function Career({ minimal = false }) {
   const [selected, setSelected] = useState(null);
+  const displayJobs = minimal ? jobs.slice(0, 3) : jobs;
 
   return (
     <section id="career" className="section-alt" style={{ padding: '5rem 0' }}>
@@ -52,7 +91,7 @@ export default function Career() {
 
         {/* Jobs Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
-          {jobs.map((job, i) => (
+          {displayJobs.map((job, i) => (
             <div
               key={i}
               className="glass-card"
@@ -97,77 +136,139 @@ export default function Career() {
           ))}
         </div>
 
+        {minimal && (
+          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+            <Link to="/career" className="btn-primary" style={{ textDecoration: 'none' }}>
+              See All Openings
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Modal */}
       {selected && (
         <div
           style={{
-            position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(6,8,24,0.85)',
-            backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: '1.5rem', animation: 'modalFadeIn 0.3s ease'
+            position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(6,8,24,0.9)',
+            backdropFilter: 'blur(12px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: '1rem', animation: 'modalFadeIn 0.3s ease'
           }}
           onClick={() => setSelected(null)}
         >
           <div
             style={{
-              background: '#0a0f25', border: '1px solid rgba(59,130,246,0.4)',
-              borderRadius: 20, width: '100%', maxWidth: 700, padding: '2.5rem',
-              position: 'relative', boxShadow: '0 20px 40px rgba(59,130,246,0.2)',
-              animation: 'modalSlideUp 0.4s ease', maxHeight: '90vh', overflowY: 'auto'
+              background: '#0a0f25', color: '#f8fafc',
+              border: '1px solid rgba(59,130,246,0.2)',
+              borderRadius: 24, width: '100%', maxWidth: 850, 
+              position: 'relative', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)',
+              animation: 'modalSlideUp 0.4s ease', maxHeight: '92vh', overflow: 'hidden',
+              display: 'flex', flexDirection: 'column'
             }}
             onClick={e => e.stopPropagation()}
           >
-            <button
-              onClick={() => setSelected(null)}
-              style={{
-                position: 'absolute', top: 20, right: 20, background: 'rgba(255,255,255,0.05)',
-                border: 'none', borderRadius: '50%', width: 36, height: 36,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#94a3b8', cursor: 'pointer', transition: 'all 0.2s'
-              }}
-              onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
-              onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
-            >
-              <X size={20} />
-            </button>
+            {/* Modal Header (Fixed) */}
+            <div style={{ padding: '2rem 2.5rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)', position: 'relative' }}>
+              <button
+                onClick={() => setSelected(null)}
+                style={{
+                  position: 'absolute', top: 20, right: 20, background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.1)', borderRadius: '50%', width: 40, height: 40,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: '#94a3b8', cursor: 'pointer', transition: 'all 0.2s'
+                }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#fff'; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#94a3b8'; }}
+              >
+                <X size={20} />
+              </button>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', paddingRight: '2.5rem' }}>
-              <div>
-                <span style={{ display: 'inline-block', background: 'rgba(59,130,246,0.15)', color: '#60a5fa', padding: '0.35rem 0.85rem', borderRadius: 50, fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+                <span style={{ background: 'rgba(22,163,74,0.15)', color: '#4ade80', padding: '0.35rem 1rem', borderRadius: 50, fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   {selected.type}
                 </span>
-                <h3 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.75rem' }}>{selected.title}</h3>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.95rem' }}>
-                  <MapPin size={18} />
-                  <span>{selected.location}</span>
+                <span style={{ color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  {selected.location}
+                </span>
+              </div>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, color: '#fff', margin: 0, lineHeight: 1.1 }}>{selected.title}</h3>
+            </div>
+
+            {/* Modal Content (Scrollable) */}
+            <div style={{ padding: '2rem 2.5rem', overflowY: 'auto', flex: 1 }}>
+              
+              {/* Vision Section */}
+              <div style={{ marginBottom: '2.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem', color: '#4ade80' }}>
+                  <div style={{ width: 28, height: 28, borderRadius: '50%', border: '2px solid #4ade80', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: 12, height: 12, borderRadius: '50%', border: '2px solid #4ade80' }} />
+                  </div>
+                  <h4 style={{ fontSize: '0.95rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>The Vision</h4>
+                </div>
+                <div style={{ borderLeft: '4px solid rgba(74,222,128,0.2)', paddingLeft: '1.5rem' }}>
+                  <p style={{ fontSize: '1.25rem', color: '#cbd5e1', fontStyle: 'italic', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+                    {selected.vision}
+                  </p>
+                </div>
+              </div>
+
+              {/* Responsibilities & Requirements Grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2.5rem' }}>
+                {/* Responsibilities */}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem', color: '#4ade80' }}>
+                    <Briefcase size={20} strokeWidth={2.5} />
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Responsibilities</h4>
+                  </div>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    {selected.responsibilities.map((resp, i) => (
+                      <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.5 }}>
+                        <div style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#4ade80', flexShrink: 0, marginTop: 8 }} />
+                        {resp}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Requirements */}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem', color: '#4ade80' }}>
+                    <CheckCircle2 size={20} strokeWidth={2.5} />
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Requirements</h4>
+                  </div>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    {selected.requirements.map((req, i) => (
+                      <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.5 }}>
+                        <CheckCircle2 size={18} color="#4ade80" style={{ flexShrink: 0, marginTop: 2 }} />
+                        {req}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
 
-            <div style={{ width: '100%', height: 1, background: 'rgba(255,255,255,0.08)', marginBottom: '2rem' }} />
-
-            <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem', color: '#f8fafc' }}>About The Role</h4>
-            <p style={{ color: '#cbd5e1', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-              {selected.longDesc}
-            </p>
-
-            <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem', color: '#f8fafc' }}>Requirements</h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
-              {selected.requirements.map((req, i) => (
-                <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: '#cbd5e1', fontSize: '1rem', lineHeight: 1.5 }}>
-                  <CheckCircle2 size={20} color="#3b82f6" style={{ flexShrink: 0, marginTop: 2 }} />
-                  {req}
-                </li>
-              ))}
-            </ul>
-
-            <a href={selected.link} onClick={e => e.preventDefault()} className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: '1.1rem', padding: '1rem 2rem' }}>
-              Apply for this Position <ArrowRight size={20} />
-            </a>
+            {/* Modal Footer (Fixed) */}
+            <div style={{ padding: '1.5rem 2.5rem 2rem', borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.02)' }}>
+              <a 
+                href={selected.link} 
+                onClick={e => e.preventDefault()} 
+                style={{ 
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', 
+                  backgroundColor: '#16a34a', color: '#ffffff', padding: '1.1rem 2rem', 
+                  borderRadius: 12, fontSize: '1rem', fontWeight: 800, textDecoration: 'none', 
+                  textTransform: 'uppercase', letterSpacing: '0.05em', transition: 'all 0.3s', 
+                  boxShadow: '0 10px 15px -3px rgba(22, 163, 74, 0.4)' 
+                }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#15803d'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#16a34a'; e.currentTarget.style.transform = 'translateY(0)'; }}
+              >
+                Apply for this Position <ArrowRight size={20} />
+              </a>
+            </div>
           </div>
         </div>
       )}
+
     </section>
   );
 }

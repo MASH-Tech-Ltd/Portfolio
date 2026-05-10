@@ -81,8 +81,11 @@ const services = [
   },
 ];
 
-export default function Services() {
+import { Link } from 'react-router-dom';
+
+export default function Services({ minimal = false }) {
   const [selected, setSelected] = useState(null);
+  const displayServices = minimal ? services.slice(0, 6) : services;
 
   return (
     <section id="services" className="section-alt" style={{ padding: '5rem 0' }}>
@@ -105,7 +108,7 @@ export default function Services() {
           gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
           gap: '1.75rem',
         }}>
-          {services.map((s, i) => (
+          {displayServices.map((s, i) => (
             <div key={i} className="service-card" onClick={() => setSelected(s)}>
               {/* Image / icon area */}
               <div style={{
@@ -163,6 +166,14 @@ export default function Services() {
             </div>
           ))}
         </div>
+
+        {minimal && (
+          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+            <Link to="/services" className="btn-primary" style={{ textDecoration: 'none' }}>
+              See All Services
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Modal */}
