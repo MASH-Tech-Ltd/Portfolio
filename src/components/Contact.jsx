@@ -2,51 +2,51 @@ import { useState } from 'react';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [sent, setSent] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  // const [sent, setSent] = useState(false);
+  // const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+  // const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
 
-    // Using EmailJS REST API
-    const data = {
-      service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      template_params: {
-        from_name: form.name,
-        from_email: form.email,
-        email: form.email,
-        subject: form.subject,
-        message: form.message
-      }
-    };
+  //   // Using EmailJS REST API
+  //   const data = {
+  //     service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  //     template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  //     user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+  //     template_params: {
+  //       from_name: form.name,
+  //       from_email: form.email,
+  //       email: form.email,
+  //       subject: form.subject,
+  //       message: form.message
+  //     }
+  //   };
 
-    try {
-      const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
+  //   try {
+  //     const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(data)
+  //     });
       
-      if (res.ok) {
-        setSent(true);
-        setTimeout(() => setSent(false), 3000);
-        setForm({ name: '', email: '', subject: '', message: '' });
-      } else {
-        const errorText = await res.text();
-        alert("Something went wrong: " + errorText);
-      }
-    } catch (err) {
-      alert("Failed to send message. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //     if (res.ok) {
+  //       setSent(true);
+  //       setTimeout(() => setSent(false), 3000);
+  //       setForm({ name: '', email: '', subject: '', message: '' });
+  //     } else {
+  //       const errorText = await res.text();
+  //       alert("Something went wrong: " + errorText);
+  //     }
+  //   } catch (err) {
+  //     alert("Failed to send message. Please try again later.");
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   return (
     <section id="contact" style={{ padding: '5rem 0' }}>
@@ -104,7 +104,57 @@ export default function Contact() {
             ))}
           </div>
 
-          {/* Right – form */}
+          <div className="glass-card" style={{ 
+            padding: '2.5rem', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            textAlign: 'center',
+            background: 'rgba(255, 255, 255, 0.03)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '24px'
+          }}>
+            <div style={{
+              width: 80, height: 80, borderRadius: '24px',
+              background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: 'white', marginBottom: '1.5rem',
+              boxShadow: '0 10px 25px -5px rgba(59, 130, 246, 0.4)'
+            }}>
+              <Mail size={32} />
+            </div>
+            
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>
+              Send us an Email
+            </h3>
+            <p style={{ color: '#64748b', marginBottom: '2rem', maxWidth: '300px' }}>
+              Prefer using your own email client? Click the button below to start a conversation.
+            </p>
+            
+            <a 
+              href="mailto:mashtech@proton.me" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary pulse-glow"
+              style={{ 
+                textDecoration: 'none', 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.75rem',
+                padding: '1rem 2rem',
+                fontSize: '1rem',
+                fontWeight: 600
+              }}
+            >
+              <Send size={18} />
+              Open Email Client
+            </a>
+          </div>
+
+          {/* Previous Form Code (Commented Out) */}
+          {/* 
           <div className="glass-card" style={{ padding: '2rem' }}>
             {sent && (
               <div style={{
@@ -143,7 +193,8 @@ export default function Contact() {
                 <Send size={16} /> {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
-          </div>
+          </div> 
+          */}
         </div>
       </div>
     </section>
