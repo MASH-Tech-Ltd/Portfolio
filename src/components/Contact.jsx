@@ -80,8 +80,8 @@ export default function Contact() {
             </p>
 
             {[
-              { icon: <Mail size={18} />, label: 'Email Us', val: 'hello@mashtech.ltd' },
-              { icon: <Phone size={18} />, label: 'Call Us', val: '+880 1700 000 000' },
+              { icon: <Mail size={18} />, label: 'Email Us', val: 'mashtech@proton.me' },
+              // { icon: <Phone size={18} />, label: 'Call Us', val: '+880 1700 000 000' },
               { icon: <MapPin size={18} />, label: 'Location', val: 'Dhaka, Bangladesh' },
             ].map((item, i) => (
               <div key={i} style={{
