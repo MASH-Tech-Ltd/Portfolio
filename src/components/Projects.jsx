@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ExternalLink, ShoppingCart, Activity, PieChart, Utensils, Bike, Palette, X } from 'lucide-react';
 
 const categories = ['All', 'Website', 'Mobile', 'UI/UX'];
@@ -79,6 +79,17 @@ export default function Projects({ minimal = false }) {
   const [selected, setSelected] = useState(null);
   const filtered = active === 'All' ? projects : projects.filter(p => p.cat === active);
   const displayProjects = minimal ? filtered.slice(0, 6) : filtered;
+
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selected]);
 
   return (
     <section id="projects" className="section-alt" style={{ padding: '5rem 0' }}>
@@ -170,7 +181,7 @@ export default function Projects({ minimal = false }) {
           >
             {/* Header / Banner */}
             <div style={{
-              padding: '2.5rem',
+              padding: 'clamp(1.25rem, 4vw, 2.5rem)',
               background: `linear-gradient(120deg, ${selected.color}15, ${selected.color}02, transparent)`,
               borderBottom: '1px solid var(--input-border)',
               position: 'relative'
@@ -211,23 +222,23 @@ export default function Projects({ minimal = false }) {
             </div>
 
             {/* Quick Stats Row */}
-            <div style={{ display: 'flex', borderBottom: '1px solid var(--input-border)', background: 'var(--glass-bg)' }}>
-              <div style={{ flex: 1, padding: '1.25rem 2.5rem', borderRight: '1px solid var(--input-border)' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', borderBottom: '1px solid var(--input-border)', background: 'var(--glass-bg)' }}>
+              <div style={{ flex: '1 1 200px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', borderRight: '1px solid var(--input-border)' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, marginBottom: '0.25rem' }}>Client</div>
                 <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.client}</div>
               </div>
-              <div style={{ flex: 1, padding: '1.25rem 2.5rem', borderRight: '1px solid var(--input-border)' }}>
+              <div style={{ flex: '1 1 200px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', borderRight: '1px solid var(--input-border)' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, marginBottom: '0.25rem' }}>Timeline</div>
                 <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.duration}</div>
               </div>
-              <div style={{ flex: 1, padding: '1.25rem 2.5rem' }}>
+              <div style={{ flex: '1 1 200px', padding: '1rem clamp(1rem, 4vw, 2.5rem)' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, marginBottom: '0.25rem' }}>Role</div>
                 <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.role}</div>
               </div>
             </div>
 
             {/* Content (Scrollable) */}
-            <div style={{ padding: '2.5rem', overflowY: 'auto', flex: 1 }}>
+            <div style={{ padding: 'clamp(1.25rem, 4vw, 2.5rem)', overflowY: 'auto', flex: 1, WebkitOverflowScrolling: 'touch' }}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
                 
                 {/* Left Col */}
@@ -273,7 +284,7 @@ export default function Projects({ minimal = false }) {
             </div>
 
             {/* Footer */}
-            <div style={{ padding: '1.5rem 2.5rem', borderTop: '1px solid var(--input-border)', background: 'var(--input-bg)' }}>
+            <div style={{ padding: 'clamp(1rem, 4vw, 1.5rem) clamp(1rem, 4vw, 2.5rem)', borderTop: '1px solid var(--input-border)', background: 'var(--input-bg)' }}>
               <a href="#" onClick={e => e.preventDefault()} className="btn-primary" style={{ background: selected.color, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, textDecoration: 'none', padding: '1.25rem', borderRadius: 14, fontSize: '1.1rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', boxShadow: `0 10px 20px ${selected.color}30`, transition: 'all 0.3s' }}>
                 View Live Project <ExternalLink size={22} />
               </a>
