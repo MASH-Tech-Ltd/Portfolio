@@ -7,6 +7,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import TeamPage from './pages/TeamPage';
 import CareerPage from './pages/CareerPage';
 import ContactPage from './pages/ContactPage';
+import TestimonialsPage from './pages/TestimonialsPage';
 
 import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
@@ -22,8 +23,9 @@ function App() {
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/projects" element={<ProjectsPage />} />
       <Route path="/team" element={<TeamPage />} />
-      <Route path="/career" element={<CareerPage />} />
+      <Route path="/career/*" element={<CareerPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/testimonials" element={<TestimonialsPage />} />
       
       {/* Footer Pages */}
       <Route path="/privacy" element={<PrivacyPolicy />} />

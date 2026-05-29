@@ -33,7 +33,7 @@ export default function Hero() {
         <div className="spin-60-reverse glass-card" style={{ position: 'absolute', top: 276, left: -24, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2496ed' }}>
           <FaDocker size={26} />
         </div>
-        <div className="spin-60-reverse glass-card" style={{ position: 'absolute', top: 276, right: -24, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff' }}>
+        <div className="spin-60-reverse glass-card" style={{ position: 'absolute', top: 276, right: -24, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-primary)' }}>
           <FaGithub size={26} />
         </div>
       </div>
@@ -47,7 +47,7 @@ export default function Hero() {
         <div className="spin-45 glass-card" style={{ position: 'absolute', top: -24, left: 216, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#61dafb' }}>
           <FaReact size={26} />
         </div>
-        <div className="spin-45 glass-card" style={{ position: 'absolute', top: 142, left: 444, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff' }}>
+        <div className="spin-45 glass-card" style={{ position: 'absolute', top: 142, left: 444, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-primary)' }}>
           <SiNextdotjs size={24} />
         </div>
         <div className="spin-45 glass-card" style={{ position: 'absolute', top: 410, left: 357, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3178c6' }}>
@@ -123,7 +123,7 @@ export default function Hero() {
               <span className="gradient-text">For Your Business</span><br />
               Growth
             </h1>
-            <p style={{ color: '#94a3b8', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '2rem', maxWidth: 480 }}>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '2rem', maxWidth: 480 }}>
               We help businesses grow and succeed in the digital age. From stunning websites
               to powerful mobile apps — we deliver solutions that exceed expectations.
             </p>
@@ -161,7 +161,7 @@ export default function Hero() {
               </div>
               <div>
                 <p style={{ fontWeight: 600, fontSize: '.95rem', marginBottom: 2 }}>{b.title}</p>
-                <p style={{ color: '#64748b', fontSize: '.8rem' }}>{b.sub}</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '.8rem' }}>{b.sub}</p>
               </div>
             </div>
           ))}

@@ -26,7 +26,7 @@ export default function Login() {
   return (
     <div style={{
       minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
-      backgroundColor: '#060818', position: 'relative', overflow: 'hidden'
+      backgroundColor: 'var(--bg-color)', position: 'relative', overflow: 'hidden'
     }}>
       {/* Background Decor */}
       <div style={{
@@ -42,7 +42,7 @@ export default function Login() {
 
       <div className="glass-card" style={{
         width: '100%', maxWidth: 450, padding: '3rem 2.5rem',
-        border: '1px solid rgba(255,255,255,0.1)', borderRadius: 24,
+        border: '1px solid var(--input-border)', borderRadius: 24,
         zIndex: 10, backdropFilter: 'blur(16px)'
       }}>
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
@@ -54,14 +54,14 @@ export default function Login() {
             <ShieldAlert size={32} />
           </div>
           <h1 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.5rem' }}>Admin Access</h1>
-          <p style={{ color: '#64748b', fontSize: '0.9rem' }}>Please enter your credentials to continue</p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Please enter your credentials to continue</p>
         </div>
 
         <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <label style={{ fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8' }}>Email Address</label>
+            <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Email Address</label>
             <div style={{ position: 'relative' }}>
-              <Mail size={18} style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
+              <Mail size={18} style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
               <input
                 type="email"
                 required
@@ -69,23 +69,19 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 style={{
-                  width: '100%', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: 12, padding: '0.85rem 1rem 0.85rem 3rem', color: '#fff', fontSize: '0.95rem',
+                  width: '100%', background: 'var(--glass-bg)', border: '1px solid var(--card-border)',
+                  borderRadius: 12, padding: '0.85rem 1rem 0.85rem 3rem', color: 'var(--text-primary)', fontSize: '0.95rem',
                   transition: 'all 0.3s'
                 }}
                 onFocus={e => e.target.style.borderColor = '#3b82f6'}
-                onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+                onBlur={e => e.target.style.borderColor = 'var(--card-border)'}
               />
             </div>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8' }}>Password</label>
-              <Link to="/forgot-password" style={{ fontSize: '0.825rem', color: '#3b82f6', textDecoration: 'none' }}>Forgot Password?</Link>
-            </div>
             <div style={{ position: 'relative' }}>
-              <Lock size={18} style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
+              <Lock size={18} style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
               <input
                 type="password"
                 required
@@ -93,13 +89,17 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 style={{
-                  width: '100%', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: 12, padding: '0.85rem 1rem 0.85rem 3rem', color: '#fff', fontSize: '0.95rem',
+                  width: '100%', background: 'var(--glass-bg)', border: '1px solid var(--card-border)',
+                  borderRadius: 12, padding: '0.85rem 1rem 0.85rem 3rem', color: 'var(--text-primary)', fontSize: '0.95rem',
                   transition: 'all 0.3s'
                 }}
                 onFocus={e => e.target.style.borderColor = '#3b82f6'}
-                onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+                onBlur={e => e.target.style.borderColor = 'var(--card-border)'}
               />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Password</label>
+              <Link to="/forgot-password" style={{ fontSize: '0.825rem', color: '#3b82f6', textDecoration: 'none' }}>Forgot Password?</Link>
             </div>
           </div>
 
@@ -121,7 +121,7 @@ export default function Login() {
         </form>
 
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-          <Link to="/" style={{ color: '#64748b', fontSize: '0.85rem', textDecoration: 'none' }}>
+          <Link to="/" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', textDecoration: 'none' }}>
             Return to Homepage
           </Link>
         </div>
