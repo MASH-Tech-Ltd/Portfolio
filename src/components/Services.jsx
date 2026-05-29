@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowUpRight, Globe, Settings, Smartphone, Monitor, Server, Rocket, LineChart, X, Clock, Repeat, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -112,6 +112,17 @@ const services = [
 export default function Services({ minimal = false }) {
   const [selected, setSelected] = useState(null);
   const displayServices = minimal ? services.slice(0, 6) : services;
+
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selected]);
 
   return (
     <section id="services" className="section-alt" style={{ padding: '5rem 0' }}>
@@ -242,7 +253,7 @@ export default function Services({ minimal = false }) {
           >
             {/* Modal Banner Header */}
             <div style={{
-              padding: '2.5rem',
+              padding: 'clamp(1.25rem, 4vw, 2.5rem)',
               background: `linear-gradient(120deg, ${selected.accent}20, ${selected.accent}05, transparent)`,
               borderBottom: '1px solid var(--input-border)',
               position: 'relative'
@@ -288,21 +299,21 @@ export default function Services({ minimal = false }) {
 
             {/* Service Stats Row */}
             <div style={{ display: 'flex', borderBottom: '1px solid var(--input-border)', background: 'var(--glass-bg)', flexWrap: 'wrap' }}>
-              <div style={{ flex: 1, minWidth: 150, padding: '1.25rem 2.5rem', display: 'flex', alignItems: 'center', gap: '1rem', borderRight: '1px solid var(--input-border)' }}>
+              <div style={{ flex: '1 1 150px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', display: 'flex', alignItems: 'center', gap: '1rem', borderRight: '1px solid var(--input-border)' }}>
                 <Clock size={24} color={selected.accent} />
                 <div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Delivery Time</div>
                   <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.stats.time}</div>
                 </div>
               </div>
-              <div style={{ flex: 1, minWidth: 150, padding: '1.25rem 2.5rem', display: 'flex', alignItems: 'center', gap: '1rem', borderRight: '1px solid var(--input-border)' }}>
+              <div style={{ flex: '1 1 150px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', display: 'flex', alignItems: 'center', gap: '1rem', borderRight: '1px solid var(--input-border)' }}>
                 <Repeat size={24} color={selected.accent} />
                 <div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Revisions</div>
                   <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.stats.revisions}</div>
                 </div>
               </div>
-              <div style={{ flex: 1, minWidth: 150, padding: '1.25rem 2.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div style={{ flex: '1 1 150px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <ShieldCheck size={24} color={selected.accent} />
                 <div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Support</div>
@@ -312,7 +323,7 @@ export default function Services({ minimal = false }) {
             </div>
 
             {/* Scrollable Content */}
-            <div style={{ padding: '2.5rem', overflowY: 'auto', flex: 1 }}>
+            <div style={{ padding: 'clamp(1.25rem, 4vw, 2.5rem)', overflowY: 'auto', flex: 1, WebkitOverflowScrolling: 'touch' }}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
                 
                 {/* Left Column: Description & Includes */}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Github, Linkedin, Twitter, X, Mail, Briefcase, FolderGit2, Users } from 'lucide-react';
 
 const members = [
@@ -75,6 +75,17 @@ import { Link } from 'react-router-dom';
 export default function Members({ minimal = false }) {
   const [selected, setSelected] = useState(null);
   const displayMembers = minimal ? members.slice(0, 6) : members;
+
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selected]);
 
   return (
     <section id="members" style={{ padding: '5rem 0' }}>
@@ -198,7 +209,7 @@ export default function Members({ minimal = false }) {
               borderRadius: 24, width: '100%', maxWidth: 700,
               position: 'relative', boxShadow: `0 30px 60px ${selected.color}25`,
               animation: 'modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              overflow: 'hidden', display: 'flex', flexDirection: 'column'
+              overflowY: 'auto', maxHeight: '92vh', WebkitOverflowScrolling: 'touch', display: 'flex', flexDirection: 'column'
             }}
             onClick={e => e.stopPropagation()}
           >
@@ -224,7 +235,7 @@ export default function Members({ minimal = false }) {
             </div>
 
             {/* Profile Info overlapping banner */}
-            <div style={{ padding: '0 2.5rem 2.5rem', marginTop: -60, position: 'relative' }}>
+            <div style={{ padding: '0 clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem)', marginTop: -60, position: 'relative' }}>
               
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', alignItems: 'flex-end', marginBottom: '2rem' }}>
                 <div style={{
@@ -255,7 +266,7 @@ export default function Members({ minimal = false }) {
                 display: 'flex', gap: '1rem', marginBottom: '2.5rem', flexWrap: 'wrap',
                 background: 'var(--input-bg)', padding: '1.25rem', borderRadius: 16, border: '1px solid var(--input-border)' 
               }}>
-                <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ flex: '1 1 120px', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ background: `${selected.color}20`, padding: '0.5rem', borderRadius: 10, color: selected.color }}>
                     <Briefcase size={22} />
                   </div>
@@ -265,7 +276,7 @@ export default function Members({ minimal = false }) {
                   </div>
                 </div>
                 <div style={{ width: 1, background: 'var(--input-border)' }} />
-                <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ flex: '1 1 120px', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ background: `${selected.color}20`, padding: '0.5rem', borderRadius: 10, color: selected.color }}>
                     <FolderGit2 size={22} />
                   </div>
@@ -275,7 +286,7 @@ export default function Members({ minimal = false }) {
                   </div>
                 </div>
                 <div style={{ width: 1, background: 'var(--input-border)' }} />
-                <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ flex: '1 1 120px', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ background: `${selected.color}20`, padding: '0.5rem', borderRadius: 10, color: selected.color }}>
                     <Users size={22} />
                   </div>

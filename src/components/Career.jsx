@@ -506,6 +506,17 @@ export default function Career({ minimal = false }) {
     }
   }, []);
 
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selected]);
+
   const getJobUrl = (job) => {
     const slug = job.title.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
     return `/career/${job.id}/${slug}`;
@@ -783,7 +794,7 @@ export default function Career({ minimal = false }) {
             {/* Banner Header */}
             <div
               style={{
-                padding: "2.5rem",
+                padding: "clamp(1.25rem, 4vw, 2.5rem)",
                 background: `linear-gradient(120deg, rgba(59,130,246,0.15), rgba(59,130,246,0.02), transparent)`,
                 borderBottom: "1px solid var(--input-border)",
                 position: "relative",
@@ -944,7 +955,7 @@ export default function Career({ minimal = false }) {
               <div
                 style={{
                   flex: "1 1 200px",
-                  padding: "1.25rem 2.5rem",
+                  padding: "1rem clamp(1rem, 4vw, 2.5rem)",
                   display: "flex",
                   alignItems: "center",
                   gap: "1rem",
@@ -978,7 +989,7 @@ export default function Career({ minimal = false }) {
               <div
                 style={{
                   flex: "1 1 200px",
-                  padding: "1.25rem 2.5rem",
+                  padding: "1rem clamp(1rem, 4vw, 2.5rem)",
                   display: "flex",
                   alignItems: "center",
                   gap: "1rem",
@@ -1012,7 +1023,7 @@ export default function Career({ minimal = false }) {
               <div
                 style={{
                   flex: "1 1 200px",
-                  padding: "1.25rem 2.5rem",
+                  padding: "1rem clamp(1rem, 4vw, 2.5rem)",
                   display: "flex",
                   alignItems: "center",
                   gap: "1rem",
@@ -1054,7 +1065,7 @@ export default function Career({ minimal = false }) {
             </div>
 
             {/* Modal Content (Scrollable) */}
-            <div style={{ padding: "2.5rem", overflowY: "auto", flex: 1 }}>
+            <div style={{ padding: "clamp(1.25rem, 4vw, 2.5rem)", overflowY: "auto", flex: 1, WebkitOverflowScrolling: "touch" }}>
               {/* Vision Section */}
               <div style={{ marginBottom: "3rem" }}>
                 <div
@@ -1458,7 +1469,7 @@ export default function Career({ minimal = false }) {
             {/* Modal Footer (Fixed) */}
             <div
               style={{
-                padding: "1.5rem 2.5rem",
+                padding: "clamp(1rem, 4vw, 1.5rem) clamp(1rem, 4vw, 2.5rem)",
                 borderTop: "1px solid var(--input-border)",
                 background: "var(--input-bg)",
                 display: "flex",
