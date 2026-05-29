@@ -16,7 +16,7 @@ import {
 const ALL_TECHS = [
   // Frontend
   { name: 'React',          icon: <FaReact />,                  color: '#61dafb',  cat: 'frontend' },
-  { name: 'Next.js',        icon: <SiNextdotjs />,              color: '#ffffff',  cat: 'frontend' },
+  { name: 'Next.js',        icon: <SiNextdotjs />,              color: '#64748b',  cat: 'frontend' },
   { name: 'TypeScript',     icon: <SiTypescript />,             color: '#3178c6',  cat: 'frontend' },
   { name: 'Flutter',        icon: <SiFlutter />,                color: '#54c5f8',  cat: 'frontend' },
   { name: 'Figma',          icon: <SiFigma />,                  color: '#f24e1e',  cat: 'frontend' },
@@ -26,7 +26,7 @@ const ALL_TECHS = [
   { name: 'Express',        icon: <SiExpress />,                color: '#cccccc',  cat: 'backend'  },
   { name: 'MongoDB',        icon: <SiMongodb />,                color: '#47a248',  cat: 'backend'  },
   { name: 'PostgreSQL',     icon: <SiPostgresql />,             color: '#336791',  cat: 'backend'  },
-  { name: 'Prisma',         icon: <SiPrisma />,                 color: '#ffffff',  cat: 'backend'  },
+  { name: 'Prisma',         icon: <SiPrisma />,                 color: '#64748b',  cat: 'backend'  },
   { name: 'SQL',            icon: <Database />,                 color: '#f8981d',  cat: 'backend'  },
   { name: 'Firebase',       icon: <SiFirebase />,               color: '#ffca28',  cat: 'backend'  },
   { name: 'JWT',            icon: <ShieldCheck />,              color: '#d63aff',  cat: 'backend'  },
@@ -40,7 +40,7 @@ const ALL_TECHS = [
   { name: 'Cloudflare',     icon: <SiCloudflare />,             color: '#f48120',  cat: 'server'   },
   { name: 'DigitalOcean',   icon: <SiDigitalocean />,           color: '#0080ff',  cat: 'server'   },
   { name: 'Git',            icon: <FaGitAlt />,                 color: '#f34f29',  cat: 'server'   },
-  { name: 'GitHub',         icon: <FaGithub />,                 color: '#ffffff',  cat: 'server'   },
+  { name: 'GitHub',         icon: <FaGithub />,                 color: '#64748b',  cat: 'server'   },
   { name: 'CI/CD',          icon: <SiGithubactions />,          color: '#2088ff',  cat: 'server'   },
   { name: 'Hosting',        icon: <Globe />,                    color: '#06b6d4',  cat: 'server'   },
   { name: 'Cloud',          icon: <Cloud />,                    color: '#38bdf8',  cat: 'server'   },
@@ -75,12 +75,12 @@ function InfiniteMarquee({ items }) {
       {/* Edge fades */}
       <div style={{
         position:'absolute', left:0, top:0, bottom:0, width:100, zIndex:2,
-        background:'linear-gradient(90deg,#060818 0%,transparent 100%)',
+        background:'linear-gradient(90deg,var(--bg-color) 0%,transparent 100%)',
         pointerEvents:'none',
       }} />
       <div style={{
         position:'absolute', right:0, top:0, bottom:0, width:100, zIndex:2,
-        background:'linear-gradient(270deg,#060818 0%,transparent 100%)',
+        background:'linear-gradient(270deg,var(--bg-color) 0%,transparent 100%)',
         pointerEvents:'none',
       }} />
 
@@ -119,7 +119,7 @@ function InfiniteMarquee({ items }) {
             <div style={{ color:t.color, fontSize:'1.85rem', display:'flex', alignItems:'center', justifyContent:'center' }}>
               {t.icon}
             </div>
-            <span style={{ fontWeight:600, fontSize:'.76rem', color:'#cbd5e1', whiteSpace:'nowrap' }}>
+            <span style={{ fontWeight:600, fontSize:'.76rem', color:'var(--text-secondary)', whiteSpace:'nowrap' }}>
               {t.name}
             </span>
           </div>
@@ -151,7 +151,7 @@ export default function TechStack() {
           <h2 style={{ fontSize:'clamp(1.75rem,4vw,2.75rem)', fontWeight:800, marginTop:12 }}>
             Our <span className="gradient-text">Tech Stack</span>
           </h2>
-          <p style={{ color:'#64748b', marginTop:'.75rem' }}>
+          <p style={{ color: 'var(--text-secondary)', marginTop:'.75rem' }}>
             Cutting-edge technologies we use to build powerful, scalable digital products.
           </p>
         </div>
@@ -169,9 +169,9 @@ export default function TechStack() {
                 transition:'all .3s',
                 border: active === t.id
                   ? `2px solid ${t.color}`
-                  : '2px solid rgba(255,255,255,.1)',
-                background: active === t.id ? `${t.color}18` : 'rgba(255,255,255,.04)',
-                color: active === t.id ? t.color : '#64748b',
+                  : '2px solid var(--input-border)',
+                background: active === t.id ? `${t.color}18` : 'var(--glass-bg)',
+                color: active === t.id ? t.color : 'var(--text-secondary)',
                 boxShadow: active === t.id ? `0 0 16px ${t.color}28` : 'none',
               }}
             >
@@ -191,8 +191,8 @@ export default function TechStack() {
         {/* Tech count badge */}
         <div style={{ textAlign:'center', marginBottom:'1.5rem' }}>
           <span style={{
-            background:'rgba(255,255,255,.06)', border:'1px solid rgba(255,255,255,.1)',
-            color:'#94a3b8', fontSize:'.78rem', fontWeight:600,
+            background:'rgba(255,255,255,.06)', border:'1px solid var(--input-border)',
+            color:'var(--text-secondary)', fontSize:'.78rem', fontWeight:600,
             padding:'.3rem .9rem', borderRadius:50,
           }}>
             {filtered.length} Technologies
@@ -213,7 +213,7 @@ export default function TechStack() {
             onClick={() => setActive(t.id)}
             style={{
               width: active===t.id ? 28 : 8, height:8, borderRadius:4,
-              background: active===t.id ? t.color : 'rgba(255,255,255,.15)',
+              background: active===t.id ? t.color : 'var(--input-border)',
               border:'none', cursor:'pointer', transition:'all .3s',
             }}
           />

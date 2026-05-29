@@ -20,7 +20,7 @@ export default function ForgotPassword() {
   return (
     <div style={{
       minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
-      backgroundColor: '#060818', position: 'relative', overflow: 'hidden'
+      backgroundColor: 'var(--bg-color)', position: 'relative', overflow: 'hidden'
     }}>
       {/* Background Decor */}
       <div style={{
@@ -31,7 +31,7 @@ export default function ForgotPassword() {
 
       <div className="glass-card" style={{
         width: '100%', maxWidth: 450, padding: '3rem 2.5rem',
-        border: '1px solid rgba(255,255,255,0.1)', borderRadius: 24,
+        border: '1px solid var(--input-border)', borderRadius: 24,
         zIndex: 10, backdropFilter: 'blur(16px)'
       }}>
         {!submitted ? (
@@ -45,14 +45,14 @@ export default function ForgotPassword() {
                 <Key size={32} />
               </div>
               <h1 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.5rem' }}>Reset Password</h1>
-              <p style={{ color: '#64748b', fontSize: '0.9rem' }}>Enter your email to receive reset instructions</p>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Enter your email to receive reset instructions</p>
             </div>
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <label style={{ fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8' }}>Admin Email</label>
+                <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Admin Email</label>
                 <div style={{ position: 'relative' }}>
-                  <Mail size={18} style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
+                  <Mail size={18} style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
                   <input
                     type="email"
                     required
@@ -60,12 +60,12 @@ export default function ForgotPassword() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     style={{
-                      width: '100%', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
-                      borderRadius: 12, padding: '0.85rem 1rem 0.85rem 3rem', color: '#fff', fontSize: '0.95rem',
+                      width: '100%', background: 'var(--glass-bg)', border: '1px solid var(--card-border)',
+                      borderRadius: 12, padding: '0.85rem 1rem 0.85rem 3rem', color: 'var(--text-primary)', fontSize: '0.95rem',
                       transition: 'all 0.3s'
                     }}
                     onFocus={e => e.target.style.borderColor = '#ec4899'}
-                    onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+                    onBlur={e => e.target.style.borderColor = 'var(--card-border)'}
                   />
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function ForgotPassword() {
               <Mail size={32} />
             </div>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem' }}>Check Your Email</h2>
-            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6, marginBottom: '2rem' }}>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: 1.6, marginBottom: '2rem' }}>
               We've sent password reset instructions to <strong>{email}</strong>.
             </p>
             <button
@@ -112,7 +112,7 @@ export default function ForgotPassword() {
         )}
 
         <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-          <Link to="/login" style={{ color: '#64748b', fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+          <Link to="/login" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
             <ArrowLeft size={14} /> Back to Login
           </Link>
         </div>

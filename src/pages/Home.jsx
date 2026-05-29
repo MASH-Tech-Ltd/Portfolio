@@ -13,7 +13,7 @@ import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#060818' }}>
+    <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-color)' }}>
       <Navbar />
       <Hero />
       <Brands />
@@ -23,8 +23,8 @@ export default function Home() {
       <Projects minimal={true} />
       <Career minimal={true} />
       <Members minimal={true} />
+      <Testimonials minimal={true} />
       <Contact />
-      <Testimonials />
       <Footer />
     </div>
   );

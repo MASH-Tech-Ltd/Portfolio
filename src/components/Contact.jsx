@@ -58,7 +58,7 @@ export default function Contact() {
           <h2 style={{ fontSize: 'clamp(1.75rem,4vw,2.75rem)', fontWeight: 800, marginTop: 12 }}>
             Let's <span className="gradient-text">Discuss</span> &amp; Bring<br />Your Vision To Life
           </h2>
-          <p style={{ color: '#64748b', marginTop: '1rem' }}>
+          <p style={{ color: 'var(--text-secondary)', marginTop: '1rem' }}>
             Have a project in mind? We'd love to hear from you.
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function Contact() {
             <h3 style={{ fontSize: '1.35rem', fontWeight: 700, marginBottom: '1rem' }}>
               Register Your Interest
             </h3>
-            <p style={{ color: '#64748b', lineHeight: 1.75, marginBottom: '2rem' }}>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.75, marginBottom: '2rem' }}>
               Fill out the form and our team will get back to you within 24 hours.
               We're here to help you achieve your digital goals.
             </p>
@@ -97,7 +97,7 @@ export default function Contact() {
                   {item.icon}
                 </div>
                 <div>
-                  <p style={{ color: '#475569', fontSize: '.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>{item.label}</p>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>{item.label}</p>
                   <p style={{ fontWeight: 500, fontSize: '.9rem' }}>{item.val}</p>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function Contact() {
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>
               Send us an Email
             </h3>
-            <p style={{ color: '#64748b', marginBottom: '2rem', maxWidth: '300px' }}>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', maxWidth: '300px' }}>
               Prefer using your own email client? Click the button below to start a conversation.
             </p>
             
@@ -168,23 +168,23 @@ export default function Contact() {
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
-                  <label style={{ display: 'block', color: '#94a3b8', fontSize: '.8rem', marginBottom: 6 }}>Your Name</label>
+                  <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '.8rem', marginBottom: 6 }}>Your Name</label>
                   <input name="name" value={form.name} onChange={handleChange} required
                     placeholder="John Doe" className="input-field" />
                 </div>
                 <div>
-                  <label style={{ display: 'block', color: '#94a3b8', fontSize: '.8rem', marginBottom: 6 }}>Email Address</label>
+                  <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '.8rem', marginBottom: 6 }}>Email Address</label>
                   <input name="email" type="email" value={form.email} onChange={handleChange} required
                     placeholder="john@example.com" className="input-field" />
                 </div>
               </div>
               <div>
-                <label style={{ display: 'block', color: '#94a3b8', fontSize: '.8rem', marginBottom: 6 }}>Subject</label>
+                <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '.8rem', marginBottom: 6 }}>Subject</label>
                 <input name="subject" value={form.subject} onChange={handleChange} required
                   placeholder="Project Inquiry" className="input-field" />
               </div>
               <div>
-                <label style={{ display: 'block', color: '#94a3b8', fontSize: '.8rem', marginBottom: 6 }}>Message</label>
+                <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '.8rem', marginBottom: 6 }}>Message</label>
                 <textarea name="message" value={form.message} onChange={handleChange} required
                   rows={5} placeholder="Tell us about your project..."
                   className="input-field" style={{ resize: 'vertical' }} />

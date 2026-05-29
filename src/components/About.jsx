@@ -25,12 +25,12 @@ export default function About({ minimal = false }) {
             <h2 style={{ fontSize: 'clamp(1.75rem,4vw,2.5rem)', fontWeight: 800, marginTop: 12, marginBottom: '1.25rem' }}>
               We Are <span className="gradient-text">Passionate</span> About<br />Digital Excellence
             </h2>
-            <p style={{ color: '#64748b', lineHeight: 1.8, marginBottom: '1rem' }}>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1rem' }}>
               We are passionate about helping businesses grow and succeed in the digital age.
               We take pride in our work and strive to exceed your expectations every time.
             </p>
             {!minimal && (
-              <p style={{ color: '#64748b', lineHeight: 1.8, marginBottom: '1.75rem' }}>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.75rem' }}>
                 Our dedicated team of designers, developers, and strategists collaborate
                 to deliver premium digital solutions that drive real business results.
               </p>
@@ -54,7 +54,7 @@ export default function About({ minimal = false }) {
                 <div style={{ fontSize: '2.25rem', fontWeight: 900, lineHeight: 1 }} className="gradient-text">
                   {s.value}
                 </div>
-                <div style={{ color: '#64748b', fontSize: '.85rem', marginTop: '.5rem' }}>{s.label}</div>
+                <div style={{ color: 'var(--text-secondary)', fontSize: '.85rem', marginTop: '.5rem' }}>{s.label}</div>
               </div>
             ))}
           </div>

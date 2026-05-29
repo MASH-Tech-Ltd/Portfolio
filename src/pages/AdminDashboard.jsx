@@ -47,7 +47,7 @@ export default function AdminDashboard() {
                 border: 'none', borderRadius: 8, cursor: 'pointer', textAlign: 'left',
                 fontSize: '0.95rem', fontWeight: 600, transition: 'all 0.2s'
               }}
-              onMouseEnter={e => { if(activeTab !== tab.id) e.currentTarget.style.background = 'rgba(255,255,255,0.05)' }}
+              onMouseEnter={e => { if(activeTab !== tab.id) e.currentTarget.style.background = 'var(--input-bg)' }}
               onMouseLeave={e => { if(activeTab !== tab.id) e.currentTarget.style.background = 'transparent' }}
             >
               {tab.icon}
@@ -72,7 +72,7 @@ export default function AdminDashboard() {
             {tabs.find(t => t.id === activeTab)?.label}
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Admin User</span>
+            <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Admin User</span>
             <div style={{ width: 36, height: 36, background: '#3b82f6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>A</div>
           </div>
         </header>
@@ -80,11 +80,11 @@ export default function AdminDashboard() {
         {/* Dynamic Content Area */}
         <div style={{ background: '#1e293b', padding: '2rem', borderRadius: 12, border: '1px solid #334155', minHeight: 400 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-            <p style={{ color: '#94a3b8' }}>
+            <p style={{ color: 'var(--text-secondary)' }}>
               Manage your portfolio data here. This section will be connected to the Node.js/MongoDB backend.
             </p>
             {activeTab !== 'dashboard' && (
-              <button style={{ background: '#3b82f6', color: '#fff', border: 'none', padding: '0.6rem 1.2rem', borderRadius: 6, fontWeight: 600, cursor: 'pointer' }}>
+              <button style={{ background: '#3b82f6', color: 'var(--text-primary)', border: 'none', padding: '0.6rem 1.2rem', borderRadius: 6, fontWeight: 600, cursor: 'pointer' }}>
                 + Add New
               </button>
             )}
@@ -93,7 +93,7 @@ export default function AdminDashboard() {
           {activeTab === 'dashboard' && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
               {['Total Projects: 12', 'Active Services: 6', 'Team Members: 6', 'Open Roles: 3'].map((stat, i) => (
-                <div key={i} style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 12 }}>
+                <div key={i} style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--input-bg)', borderRadius: 12 }}>
                   <h3 style={{ fontSize: '0.95rem', color: '#cbd5e1' }}>{stat.split(':')[0]}</h3>
                   <p style={{ fontSize: '2rem', fontWeight: 800, color: '#3b82f6', marginTop: '0.5rem' }}>{stat.split(':')[1]}</p>
                 </div>
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
           )}
 
           {activeTab !== 'dashboard' && (
-            <div style={{ width: '100%', height: 300, border: '2px dashed #334155', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ width: '100%', height: 300, border: '2px dashed #334155', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)', flexDirection: 'column', gap: '1rem' }}>
               <span>Data table for {activeTab} will render here.</span>
               <span>Connect MongoDB to fetch and edit data.</span>
             </div>

@@ -31,7 +31,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer style={{ borderTop: '1px solid rgba(255,255,255,.07)', paddingTop: '4rem' }}>
+    <footer style={{ borderTop: '1px solid var(--nav-border)', paddingTop: '4rem' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 1.5rem' }}>
 
         <div style={{
@@ -54,11 +54,11 @@ export default function Footer() {
                 <a key={i} href={s.href} aria-label={s.label} style={{
                   width: 36, height: 36, borderRadius: '50%', display: 'flex',
                   alignItems: 'center', justifyContent: 'center',
-                  background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.1)',
-                  color: '#94a3b8', textDecoration: 'none', transition: 'all .3s'
+                  background: 'rgba(255,255,255,.06)', border: '1px solid var(--input-border)',
+                  color: 'var(--text-secondary)', textDecoration: 'none', transition: 'all .3s'
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(59,130,246,.2)'; e.currentTarget.style.color = '#3b82f6'; e.currentTarget.style.borderColor = 'rgba(59,130,246,.4)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,.06)'; e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.borderColor = 'rgba(255,255,255,.1)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,.06)'; e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.borderColor = 'var(--input-border)'; }}
                 >
                   {s.icon}
                 </a>
@@ -68,7 +68,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 style={{ fontWeight: 700, fontSize: '.95rem', marginBottom: '1.25rem', color: '#fff' }}>Quick Links</h4>
+            <h4 style={{ fontWeight: 700, fontSize: '.95rem', marginBottom: '1.25rem', color: 'var(--text-primary)' }}>Quick Links</h4>
             <ul style={{ listStyle: 'none' }}>
               {quickLinks.map((l, i) => (
                 <li key={i} style={{ marginBottom: '.75rem' }}>
@@ -84,7 +84,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 style={{ fontWeight: 700, fontSize: '.95rem', marginBottom: '1.25rem', color: '#fff' }}>Services</h4>
+            <h4 style={{ fontWeight: 700, fontSize: '.95rem', marginBottom: '1.25rem', color: 'var(--text-primary)' }}>Services</h4>
             <ul style={{ listStyle: 'none' }}>
               {serviceLinks.map((l, i) => (
                 <li key={i} style={{ marginBottom: '.75rem' }}>
@@ -100,7 +100,7 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 style={{ fontWeight: 700, fontSize: '.95rem', marginBottom: '1.25rem', color: '#fff' }}>Stay Updated</h4>
+            <h4 style={{ fontWeight: 700, fontSize: '.95rem', marginBottom: '1.25rem', color: 'var(--text-primary)' }}>Stay Updated</h4>
             <p style={{ color: '#475569', fontSize: '.875rem', lineHeight: 1.65, marginBottom: '1rem' }}>
               Subscribe to our newsletter for the latest tech insights and updates.
             </p>
