@@ -264,3 +264,465 @@ body {
   display:flex; align-items:center; justify-content:center;
   font-weight:700; font-size:1.1rem; color: var(--text-primary); flex-shrink:0;
 }
+
+/* ── Mobile Responsive Fixes for Career ── */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.career-modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.career-modal-icon-container {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+}
+.career-modal-icon-container svg {
+  width: 32px;
+  height: 32px;
+}
+.career-modal-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+.career-modal-stats-row {
+  display: flex;
+  border-bottom: 1px solid var(--input-border);
+  background: var(--glass-bg);
+  flex-wrap: wrap;
+}
+.career-modal-stat-item {
+  flex: 1 1 200px;
+  padding: 1rem clamp(1rem, 4vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-right: 1px solid var(--input-border);
+}
+.career-modal-stat-item:last-child {
+  border-right: none;
+}
+.career-modal-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.career-modal-stat-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.career-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+}
+
+/* Members Modal Responsive */
+.member-modal-avatar {
+  width: 120px;
+  height: 120px;
+  font-size: 3rem;
+}
+.member-modal-header-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+.member-modal-name {
+  font-size: 2rem;
+}
+.member-modal-stats-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  background: var(--input-bg);
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--input-border);
+}
+
+.career-modal-banner {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+.career-modal-body {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+.career-modal-close-btn {
+  top: 24px;
+  right: 24px;
+}
+.career-modal-tags {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.career-modal-tag {
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+.career-modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ── Member Modal Base Styles ── */
+.member-modal-profile-wrapper {
+  margin-top: -60px;
+}
+.member-modal-header-info {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+.member-modal-avatar {
+  width: 100px;
+  height: 100px;
+  font-size: 2.5rem;
+}
+.member-modal-name {
+  font-size: 1.75rem;
+}
+.member-modal-stats-container {
+  display: flex;
+  background: var(--input-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1.5rem 0 2rem;
+  border: 1px solid var(--input-border);
+  gap: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   xs: 0,  sm: 576px,  md: 768px,
+   lg: 992px,  xl: 1200px,  xxl: 1400px
+   ═══════════════════════════════════════════════════ */
+
+/* ── xl: ≤1200px ── */
+@media (max-width: 1200px) {
+  .career-modal-grid {
+    gap: 2rem;
+  }
+}
+
+/* ── lg: ≤992px ── */
+@media (max-width: 992px) {
+  .career-modal-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .career-modal-banner {
+    padding: clamp(1rem, 3vw, 2rem) !important;
+  }
+  .career-modal-body {
+    padding: clamp(1rem, 3vw, 2rem) !important;
+  }
+  .member-modal-stats-container {
+    gap: 0.5rem;
+  }
+}
+
+/* ── md: ≤768px ── */
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Modal header compact */
+  .career-modal-header {
+    gap: 0.75rem !important;
+  }
+  .career-modal-icon-container {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+  }
+  .career-modal-icon-container svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .career-modal-title {
+    font-size: 1.15rem !important;
+  }
+  .career-modal-tag {
+    padding: 0.2rem 0.6rem !important;
+    font-size: 0.65rem !important;
+  }
+  .career-modal-close-btn {
+    top: 12px !important;
+    right: 12px !important;
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .career-modal-close-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Stats row — stay horizontal but tighter */
+  .career-modal-stat-item {
+    padding: 0.6rem 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+  .career-modal-stat-label {
+    font-size: 0.65rem !important;
+  }
+  .career-modal-stat-value {
+    font-size: 0.9rem !important;
+  }
+
+  /* Footer compact */
+  .career-modal-footer {
+    padding: 0.6rem 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+  .career-modal-footer a {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 10px !important;
+  }
+  .career-modal-footer button {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 10px !important;
+  }
+
+  /* Member modal */
+  .member-modal-avatar {
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 2rem !important;
+  }
+  .member-modal-name {
+    font-size: 1.4rem !important;
+  }
+  .member-modal-stats-container {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+  .member-modal-stats-container > div.divider {
+    display: none !important;
+  }
+
+  /* Services card */
+  .service-card {
+    border-radius: 16px !important;
+  }
+}
+
+/* ── sm: ≤576px ── (small phones) */
+@media (max-width: 576px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* ── Modal overlay ── */
+  [style*="position: fixed"][style*="inset: 0"] {
+    padding: 0.35rem !important;
+  }
+  [style*="maxHeight"][style*="borderRadius: 24"] {
+    border-radius: 14px !important;
+    max-height: 97vh !important;
+  }
+
+  /* ── Banner / header ── */
+  .career-modal-banner {
+    padding: 0.6rem !important;
+  }
+  .career-modal-body {
+    padding: 0.6rem !important;
+  }
+  .career-modal-close-btn {
+    top: 6px !important;
+    right: 6px !important;
+    width: 24px !important;
+    height: 24px !important;
+  }
+  .career-modal-close-btn svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+  /* ── Header row ── */
+  .career-modal-header {
+    gap: 0.5rem !important;
+  }
+  .career-modal-icon-container {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    flex-shrink: 0 !important;
+  }
+  .career-modal-icon-container svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .career-modal-title {
+    font-size: 0.95rem !important;
+    line-height: 1.15 !important;
+    margin: 0 !important;
+  }
+  .career-modal-tags {
+    gap: 0.25rem !important;
+    margin-bottom: 0.15rem !important;
+    padding-right: 26px !important;
+    flex-wrap: wrap !important;
+  }
+  .career-modal-tag {
+    padding: 0.12rem 0.45rem !important;
+    font-size: 0.55rem !important;
+    border-radius: 20px !important;
+  }
+  .career-modal-meta {
+    margin-top: 0.15rem !important;
+    gap: 0.15rem !important;
+    font-size: 0.7rem !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .career-modal-meta > div {
+    gap: 0.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .career-modal-meta > div > svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  /* ── Stats – compact horizontal ── */
+  .career-modal-stats-row {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+  .career-modal-stat-item {
+    flex: 1 !important;
+    border-right: 1px solid var(--input-border) !important;
+    border-bottom: none !important;
+    padding: 0.3rem 0.4rem !important;
+    gap: 0.3rem !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .career-modal-stat-item:last-child {
+    border-right: none !important;
+  }
+  .career-modal-stat-item svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .career-modal-stat-label {
+    font-size: 0.55rem !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap !important;
+  }
+  .career-modal-stat-value {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* ── Content grid ── */
+  .career-modal-grid {
+    gap: 0.75rem !important;
+    grid-template-columns: 1fr !important;
+  }
+
+
+  /* ── Footer – ultra compact ── */
+  .career-modal-footer {
+    padding: 0.4rem 0.5rem !important;
+    gap: 0.35rem !important;
+  }
+  .career-modal-footer button {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  .career-modal-footer a {
+    padding: 0.5rem 0.6rem !important;
+    border-radius: 8px !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0 !important;
+    box-shadow: none !important;
+  }
+  .career-modal-footer svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* ── Member modal ── */
+  .member-modal-profile-wrapper {
+    margin-top: -30px !important;
+  }
+  .member-modal-header-info {
+    flex-direction: row !important;
+    align-items: flex-end !important;
+    margin-top: 0 !important;
+    gap: 0.6rem !important;
+  }
+  .member-modal-avatar {
+    width: 56px !important;
+    height: 56px !important;
+    font-size: 1.25rem !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15), 0 0 0 3px var(--card-bg) !important;
+  }
+  .member-modal-name {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+  .member-modal-stats-container {
+    flex-direction: row !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+  .member-modal-stats-container > div:not(.divider) {
+    flex: 1 !important;
+    padding: 0.4rem 0.5rem !important;
+    border-right: 1px solid var(--input-border) !important;
+  }
+  .member-modal-stats-container > div:not(.divider):last-child {
+    border-right: none !important;
+  }
+  .member-modal-stats-container > div.divider {
+    display: none !important;
+  }
+
+  /* ── Services card ── */
+  .service-card {
+    border-radius: 14px !important;
+  }
+}
+

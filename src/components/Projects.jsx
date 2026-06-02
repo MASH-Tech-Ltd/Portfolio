@@ -118,7 +118,7 @@ export default function Projects({ minimal = false }) {
         )}
 
         {/* Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))', gap: '1.5rem' }}>
+        <div className="responsive-grid">
           {displayProjects.map((p, i) => (
             <div key={i} className="project-card" onClick={() => setSelected(p)}>
               {/* Placeholder image area */}
@@ -180,16 +180,15 @@ export default function Projects({ minimal = false }) {
             onClick={e => e.stopPropagation()}
           >
             {/* Header / Banner */}
-            <div style={{
-              padding: 'clamp(1.25rem, 4vw, 2.5rem)',
+            <div className="career-modal-banner" style={{
               background: `linear-gradient(120deg, ${selected.color}15, ${selected.color}02, transparent)`,
               borderBottom: '1px solid var(--input-border)',
               position: 'relative'
             }}>
-              <button
+              <button className="career-modal-close-btn"
                 onClick={() => setSelected(null)}
                 style={{
-                  position: 'absolute', top: 24, right: 24, background: 'var(--card-bg)',
+                  position: 'absolute', background: 'var(--card-bg)',
                   border: '1px solid var(--input-border)', borderRadius: '50%', width: 40, height: 40,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: 'var(--text-primary)', cursor: 'pointer', transition: 'all 0.2s', zIndex: 10
@@ -200,46 +199,53 @@ export default function Projects({ minimal = false }) {
                 <X size={20} />
               </button>
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
-                <div style={{
-                  width: 72, height: 72, borderRadius: 20,
-                  background: `linear-gradient(135deg, ${selected.color}, ${selected.color}dd)`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff',
-                  flexShrink: 0, boxShadow: `0 12px 24px ${selected.color}40`
-                }}>
+              <div className="career-modal-header">
+                <div
+                  className="career-modal-icon-container"
+                  style={{
+                    background: `linear-gradient(135deg, ${selected.color}, ${selected.color}dd)`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff',
+                    flexShrink: 0, boxShadow: `0 12px 24px ${selected.color}40`
+                  }}>
                   <div style={{ transform: 'scale(0.8)' }}>{selected.icon}</div>
                 </div>
                 <div>
-                  <span style={{
-                    display: 'inline-block', background: `${selected.color}15`, color: selected.color,
-                    fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase',
-                    padding: '0.35rem 1rem', borderRadius: 50, marginBottom: '0.75rem',
-                    border: `1px solid ${selected.color}30`
-                  }}>{selected.cat}</span>
-                  <h3 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 900, color: 'var(--text-primary)', margin: 0, lineHeight: 1.2 }}>{selected.title}</h3>
+                  <div className="career-modal-tags">
+                    <span className="career-modal-tag" style={{
+                      background: `${selected.color}15`, color: selected.color,
+                      border: `1px solid ${selected.color}30`
+                    }}>{selected.cat}</span>
+                  </div>
+                  <h3 className="career-modal-title">{selected.title}</h3>
                 </div>
               </div>
             </div>
 
             {/* Quick Stats Row */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', borderBottom: '1px solid var(--input-border)', background: 'var(--glass-bg)' }}>
-              <div style={{ flex: '1 1 200px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', borderRight: '1px solid var(--input-border)' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, marginBottom: '0.25rem' }}>Client</div>
-                <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.client}</div>
+            <div className="career-modal-stats-row">
+              <div className="career-modal-stat-item">
+                <div>
+                  <div className="career-modal-stat-label">Client</div>
+                  <div className="career-modal-stat-value">{selected.client}</div>
+                </div>
               </div>
-              <div style={{ flex: '1 1 200px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', borderRight: '1px solid var(--input-border)' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, marginBottom: '0.25rem' }}>Timeline</div>
-                <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.duration}</div>
+              <div className="career-modal-stat-item">
+                <div>
+                  <div className="career-modal-stat-label">Timeline</div>
+                  <div className="career-modal-stat-value">{selected.duration}</div>
+                </div>
               </div>
-              <div style={{ flex: '1 1 200px', padding: '1rem clamp(1rem, 4vw, 2.5rem)' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, marginBottom: '0.25rem' }}>Role</div>
-                <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.role}</div>
+              <div className="career-modal-stat-item">
+                <div>
+                  <div className="career-modal-stat-label">Role</div>
+                  <div className="career-modal-stat-value">{selected.role}</div>
+                </div>
               </div>
             </div>
 
             {/* Content (Scrollable) */}
-            <div style={{ padding: 'clamp(1.25rem, 4vw, 2.5rem)', overflowY: 'auto', flex: 1, WebkitOverflowScrolling: 'touch' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
+            <div className="career-modal-body" style={{ overflowY: 'auto', flex: 1, WebkitOverflowScrolling: 'touch' }}>
+              <div className="career-modal-grid">
                 
                 {/* Left Col */}
                 <div>
@@ -284,9 +290,9 @@ export default function Projects({ minimal = false }) {
             </div>
 
             {/* Footer */}
-            <div style={{ padding: 'clamp(1rem, 4vw, 1.5rem) clamp(1rem, 4vw, 2.5rem)', borderTop: '1px solid var(--input-border)', background: 'var(--input-bg)' }}>
-              <a href="#" onClick={e => e.preventDefault()} className="btn-primary" style={{ background: selected.color, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, textDecoration: 'none', padding: '1.25rem', borderRadius: 14, fontSize: '1.1rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', boxShadow: `0 10px 20px ${selected.color}30`, transition: 'all 0.3s' }}>
-                View Live Project <ExternalLink size={22} />
+            <div className="career-modal-footer" style={{ padding: 'clamp(0.75rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2.5rem)', borderTop: '1px solid var(--input-border)', background: 'var(--input-bg)' }}>
+              <a href="#" onClick={e => e.preventDefault()} className="btn-primary" style={{ background: selected.color, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, textDecoration: 'none', padding: '1rem', borderRadius: 12, fontSize: '1rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', boxShadow: `0 10px 20px ${selected.color}30`, transition: 'all 0.3s' }}>
+                View Live Project <ExternalLink size={20} />
               </a>
             </div>
 
