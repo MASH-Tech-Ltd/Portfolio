@@ -603,13 +603,7 @@ export default function Career({ minimal = false }) {
         )}
 
         {/* Jobs Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-            gap: "1.5rem",
-          }}
-        >
+        <div className="responsive-grid">
           {displayJobs.map((job, i) => (
             <div
               key={i}
@@ -792,23 +786,20 @@ export default function Career({ minimal = false }) {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Banner Header */}
-            <div
+            <div className="career-modal-banner"
               style={{
-                padding: "clamp(1.25rem, 4vw, 2.5rem)",
                 background: `linear-gradient(120deg, rgba(59,130,246,0.15), rgba(59,130,246,0.02), transparent)`,
                 borderBottom: "1px solid var(--input-border)",
                 position: "relative",
               }}
             >
-              <button
+              <button className="career-modal-close-btn"
                 onClick={() => {
                   setSelected(null);
                   window.history.pushState(null, '', '/career');
                 }}
                 style={{
                   position: "absolute",
-                  top: 24,
-                  right: 24,
                   background: "var(--card-bg)",
                   border: "1px solid var(--input-border)",
                   borderRadius: "50%",
@@ -832,18 +823,10 @@ export default function Career({ minimal = false }) {
                 <X size={20} />
               </button>
 
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "1.5rem",
-                }}
-              >
+              <div className="career-modal-header">
                 <div
+                  className="career-modal-icon-container"
                   style={{
-                    width: 72,
-                    height: 72,
-                    borderRadius: 20,
                     background: `linear-gradient(135deg, #3b82f6, #2563eb)`,
                     display: "flex",
                     alignItems: "center",
@@ -853,72 +836,36 @@ export default function Career({ minimal = false }) {
                     boxShadow: `0 12px 24px rgba(59,130,246,0.4)`,
                   }}
                 >
-                  <Briefcase size={32} />
+                  <Briefcase />
                 </div>
                 <div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "1rem",
-                      marginBottom: "0.75rem",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <span
+                  <div className="career-modal-tags">
+                    <span className="career-modal-tag"
                       style={{
                         background: "rgba(59,130,246,0.15)",
                         color: "#3b82f6",
-                        padding: "0.35rem 1rem",
-                        borderRadius: 50,
-                        fontSize: "0.8rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.05em",
                         border: "1px solid rgba(59,130,246,0.3)",
                       }}
                     >
                       {selected.department}
                     </span>
-                    <span
-                      style={{
-                        background: "rgba(22,163,74,0.15)",
-                        color: "#4ade80",
-                        padding: "0.35rem 1rem",
-                        borderRadius: 50,
-                        fontSize: "0.8rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.05em",
-                        border: "1px solid rgba(22,163,74,0.3)",
-                      }}
-                    >
-                      {selected.type}
-                    </span>
+                    {(Array.isArray(selected.type) ? selected.type : [selected.type]).map((t, ti) => (
+                      <span className="career-modal-tag"
+                        key={ti}
+                        style={{
+                          background: "rgba(22,163,74,0.15)",
+                          color: "#4ade80",
+                          border: "1px solid rgba(22,163,74,0.3)",
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
-                  <h3
-                    style={{
-                      fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-                      fontWeight: 900,
-                      color: "var(--text-primary)",
-                      margin: 0,
-                      lineHeight: 1.2,
-                    }}
-                  >
+                  <h3 className="career-modal-title">
                     {selected.title}
                   </h3>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "1.5rem",
-                      color: "var(--text-secondary)",
-                      fontSize: "0.95rem",
-                      fontWeight: 600,
-                      marginTop: "1rem",
-                      flexWrap: "wrap",
-                    }}
-                  >
+                  <div className="career-modal-meta">
                     <div
                       style={{
                         display: "flex",
@@ -944,111 +891,31 @@ export default function Career({ minimal = false }) {
             </div>
 
             {/* Quick Stats Row */}
-            <div
-              style={{
-                display: "flex",
-                borderBottom: "1px solid var(--input-border)",
-                background: "var(--glass-bg)",
-                flexWrap: "wrap",
-              }}
-            >
-              <div
-                style={{
-                  flex: "1 1 200px",
-                  padding: "1rem clamp(1rem, 4vw, 2.5rem)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1rem",
-                  borderRight: "1px solid var(--input-border)",
-                }}
-              >
+            <div className="career-modal-stats-row">
+              <div className="career-modal-stat-item">
                 <DollarSign size={24} color="#4ade80" />
                 <div>
-                  <div
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "var(--text-secondary)",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Salary Range
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "1.1rem",
-                      fontWeight: 800,
-                      color: "var(--text-primary)",
-                    }}
-                  >
-                    {selected.salary}
-                  </div>
+                  <div className="career-modal-stat-label">Salary Range</div>
+                  <div className="career-modal-stat-value">{selected.salary}</div>
                 </div>
               </div>
-              <div
-                style={{
-                  flex: "1 1 200px",
-                  padding: "1rem clamp(1rem, 4vw, 2.5rem)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1rem",
-                  borderRight: "1px solid var(--input-border)",
-                }}
-              >
+              <div className="career-modal-stat-item">
                 <Award size={24} color="#f59e0b" />
                 <div>
-                  <div
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "var(--text-secondary)",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Experience
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "1.1rem",
-                      fontWeight: 800,
-                      color: "var(--text-primary)",
-                    }}
-                  >
-                    {selected.experience}
-                  </div>
+                  <div className="career-modal-stat-label">Experience</div>
+                  <div className="career-modal-stat-value">{selected.experience}</div>
                 </div>
               </div>
-              <div
-                style={{
-                  flex: "1 1 200px",
-                  padding: "1rem clamp(1rem, 4vw, 2.5rem)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1rem",
-                }}
-              >
+              <div className="career-modal-stat-item">
                 <Calendar
                   size={24}
                   color={isExpired(selected.deadline) ? "#ef4444" : "#3b82f6"}
                 />
                 <div>
+                  <div className="career-modal-stat-label">Deadline</div>
                   <div
+                    className="career-modal-stat-value"
                     style={{
-                      fontSize: "0.8rem",
-                      color: "var(--text-secondary)",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Deadline
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "1.1rem",
-                      fontWeight: 800,
                       color: isExpired(selected.deadline)
                         ? "#ef4444"
                         : "var(--text-primary)",
@@ -1065,7 +932,7 @@ export default function Career({ minimal = false }) {
             </div>
 
             {/* Modal Content (Scrollable) */}
-            <div style={{ padding: "clamp(1.25rem, 4vw, 2.5rem)", overflowY: "auto", flex: 1, WebkitOverflowScrolling: "touch" }}>
+            <div className="career-modal-body" style={{ overflowY: "auto", flex: 1, WebkitOverflowScrolling: "touch" }}>
               {/* Vision Section */}
               <div style={{ marginBottom: "3rem" }}>
                 <div
@@ -1109,6 +976,7 @@ export default function Career({ minimal = false }) {
                     {selected.vision}
                   </p>
                   <p
+                    className="modal-culture-text"
                     style={{
                       fontSize: "1rem",
                       color: "var(--text-secondary)",
@@ -1163,17 +1031,11 @@ export default function Career({ minimal = false }) {
               </div>
 
               {/* Grid: Responsibilities & Requirements */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                  gap: "3rem",
-                }}
-              >
+              <div className="career-modal-grid">
                 {/* Responsibilities */}
                 <div>
                   {selected.highlights && (
-                    <div style={{ marginBottom: "2.5rem" }}>
+                    <div className="modal-highlights-section" style={{ marginBottom: "2.5rem" }}>
                       <div
                         style={{
                           display: "flex",
@@ -1236,6 +1098,7 @@ export default function Career({ minimal = false }) {
                     </div>
                   )}
 
+                  <div className="modal-responsibilities-section">
                   <div
                     style={{
                       display: "flex",
@@ -1294,6 +1157,7 @@ export default function Career({ minimal = false }) {
                       </li>
                     ))}
                   </ul>
+                  </div>
                 </div>
 
                 {/* Requirements */}
@@ -1354,6 +1218,7 @@ export default function Career({ minimal = false }) {
 
                   {selected.niceToHave && (
                     <div
+                      className="modal-nice-to-have-section"
                       style={{
                         marginTop: "1.5rem",
                         background: "var(--input-bg)",
@@ -1414,7 +1279,7 @@ export default function Career({ minimal = false }) {
                   )}
 
                   {/* Benefits */}
-                  <div style={{ marginTop: "2.5rem" }}>
+                  <div className="modal-benefits-section" style={{ marginTop: "2.5rem" }}>
                     <div
                       style={{
                         display: "flex",
@@ -1468,12 +1333,13 @@ export default function Career({ minimal = false }) {
 
             {/* Modal Footer (Fixed) */}
             <div
+              className="career-modal-footer"
               style={{
-                padding: "clamp(1rem, 4vw, 1.5rem) clamp(1rem, 4vw, 2.5rem)",
+                padding: "clamp(0.75rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2.5rem)",
                 borderTop: "1px solid var(--input-border)",
                 background: "var(--input-bg)",
                 display: "flex",
-                gap: "1rem",
+                gap: "0.75rem",
               }}
             >
               <button
@@ -1492,7 +1358,7 @@ export default function Career({ minimal = false }) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  width: "65px",
+                  width: "48px",
                   backgroundColor: "transparent",
                   color: "var(--text-primary)",
                   border: "2px solid var(--input-border)",
@@ -1529,9 +1395,9 @@ export default function Career({ minimal = false }) {
                   color: isExpired(selected.deadline)
                     ? "var(--text-secondary)"
                     : "#ffffff",
-                  padding: "1.25rem 2rem",
-                  borderRadius: 14,
-                  fontSize: "1.1rem",
+                  padding: "1rem 1.5rem",
+                  borderRadius: 12,
+                  fontSize: "1rem",
                   fontWeight: 800,
                   textDecoration: "none",
                   textTransform: "uppercase",

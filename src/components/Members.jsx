@@ -103,11 +103,7 @@ export default function Members({ minimal = false }) {
         </div>
 
         {/* Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: '1.75rem'
-        }}>
+        <div className="responsive-grid">
           {displayMembers.map((m, i) => (
             <div
               key={i}
@@ -215,14 +211,14 @@ export default function Members({ minimal = false }) {
           >
             {/* Banner Header */}
             <div style={{
-              height: 140, width: '100%',
+              height: 140, flexShrink: 0, width: '100%',
               background: `linear-gradient(120deg, ${selected.color}40, ${selected.color}10, transparent)`,
               position: 'relative'
             }}>
-              <button
+              <button className="career-modal-close-btn"
                 onClick={() => setSelected(null)}
                 style={{
-                  position: 'absolute', top: 16, right: 16, background: 'var(--card-bg)',
+                  position: 'absolute', background: 'var(--card-bg)',
                   border: '1px solid var(--input-border)', borderRadius: '50%', width: 36, height: 36,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: 'var(--text-primary)', cursor: 'pointer', transition: 'all 0.2s', zIndex: 10
@@ -235,37 +231,35 @@ export default function Members({ minimal = false }) {
             </div>
 
             {/* Profile Info overlapping banner */}
-            <div style={{ padding: '0 clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem)', marginTop: -60, position: 'relative' }}>
+            <div className="member-modal-profile-wrapper" style={{ padding: '0 clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem)', position: 'relative' }}>
               
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', alignItems: 'flex-end', marginBottom: '2rem' }}>
-                <div style={{
-                  width: 120, height: 120, borderRadius: '50%',
-                  background: `linear-gradient(135deg, ${selected.color}, ${selected.color}99)`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '3rem', fontWeight: 800, color: '#ffffff',
-                  boxShadow: `0 12px 30px ${selected.color}55, 0 0 0 6px var(--card-bg)`,
-                }}>
+              <div className="member-modal-header-info">
+                <div
+                  className="member-modal-avatar"
+                  style={{
+                    borderRadius: '50%',
+                    background: `linear-gradient(135deg, ${selected.color}, ${selected.color}99)`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontWeight: 800, color: '#ffffff',
+                    boxShadow: `0 12px 30px ${selected.color}55, 0 0 0 6px var(--card-bg)`,
+                  }}>
                   {selected.initials}
                 </div>
                 <div style={{ paddingBottom: '0.5rem', flex: 1 }}>
-                  <h3 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.25rem', color: 'var(--text-primary)' }}>
+                  <h3 className="member-modal-name" style={{ fontWeight: 800, marginBottom: '0.25rem', color: 'var(--text-primary)' }}>
                     {selected.name}
                   </h3>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                    <span style={{
-                      display: 'inline-block', background: `${selected.color}15`, color: selected.color,
-                      fontSize: '.85rem', fontWeight: 700, letterSpacing: '.05em', textTransform: 'uppercase',
-                      padding: '.35rem 1rem', borderRadius: 50, border: `1px solid ${selected.color}30`
+                  <div className="career-modal-tags">
+                    <span className="career-modal-tag" style={{
+                      background: `${selected.color}15`, color: selected.color,
+                      border: `1px solid ${selected.color}30`
                     }}>{selected.role}</span>
                   </div>
                 </div>
               </div>
 
               {/* Stats Row */}
-              <div style={{ 
-                display: 'flex', gap: '1rem', marginBottom: '2.5rem', flexWrap: 'wrap',
-                background: 'var(--input-bg)', padding: '1.25rem', borderRadius: 16, border: '1px solid var(--input-border)' 
-              }}>
+              <div className="member-modal-stats-container">
                 <div style={{ flex: '1 1 120px', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ background: `${selected.color}20`, padding: '0.5rem', borderRadius: 10, color: selected.color }}>
                     <Briefcase size={22} />
@@ -275,7 +269,7 @@ export default function Members({ minimal = false }) {
                     <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Experience</div>
                   </div>
                 </div>
-                <div style={{ width: 1, background: 'var(--input-border)' }} />
+                <div className="divider" style={{ width: 1, background: 'var(--input-border)' }} />
                 <div style={{ flex: '1 1 120px', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ background: `${selected.color}20`, padding: '0.5rem', borderRadius: 10, color: selected.color }}>
                     <FolderGit2 size={22} />
@@ -285,7 +279,7 @@ export default function Members({ minimal = false }) {
                     <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Projects</div>
                   </div>
                 </div>
-                <div style={{ width: 1, background: 'var(--input-border)' }} />
+                <div className="divider" style={{ width: 1, background: 'var(--input-border)' }} />
                 <div style={{ flex: '1 1 120px', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ background: `${selected.color}20`, padding: '0.5rem', borderRadius: 10, color: selected.color }}>
                     <Users size={22} />

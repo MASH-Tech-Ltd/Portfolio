@@ -252,16 +252,16 @@ export default function Services({ minimal = false }) {
             onClick={e => e.stopPropagation()}
           >
             {/* Modal Banner Header */}
-            <div style={{
-              padding: 'clamp(1.25rem, 4vw, 2.5rem)',
+            <div className="career-modal-banner" style={{
               background: `linear-gradient(120deg, ${selected.accent}20, ${selected.accent}05, transparent)`,
               borderBottom: '1px solid var(--input-border)',
               position: 'relative'
             }}>
               <button
+                className="career-modal-close-btn"
                 onClick={() => setSelected(null)}
                 style={{
-                  position: 'absolute', top: 24, right: 24, background: 'var(--card-bg)',
+                  position: 'absolute', background: 'var(--card-bg)',
                   border: '1px solid var(--input-border)', borderRadius: '50%', width: 40, height: 40,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: 'var(--text-primary)', cursor: 'pointer', transition: 'all 0.2s', zIndex: 10
@@ -272,14 +272,15 @@ export default function Services({ minimal = false }) {
                 <X size={20} />
               </button>
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
-                <div style={{
-                  width: 72, height: 72, borderRadius: 20,
-                  background: `linear-gradient(135deg, ${selected.accent}, ${selected.accent}99)`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#ffffff', flexShrink: 0,
-                  boxShadow: `0 12px 24px ${selected.accent}55`,
-                }}>
+              <div className="career-modal-header">
+                <div
+                  className="career-modal-icon-container"
+                  style={{
+                    background: `linear-gradient(135deg, ${selected.accent}, ${selected.accent}99)`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#ffffff', flexShrink: 0,
+                    boxShadow: `0 12px 24px ${selected.accent}55`,
+                  }}>
                   {selected.img ? (
                     <img src={selected.img} alt={selected.title} style={{ width: 40, height: 40, objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
                   ) : (
@@ -287,44 +288,45 @@ export default function Services({ minimal = false }) {
                   )}
                 </div>
                 <div>
-                  <span style={{
-                    display: 'inline-block', background: `${selected.accent}22`, color: selected.accent,
-                    fontSize: '.8rem', fontWeight: 700, letterSpacing: '.05em', textTransform: 'uppercase',
-                    padding: '.35rem 1rem', borderRadius: 50, marginBottom: '0.75rem', border: `1px solid ${selected.accent}40`
-                  }}>{selected.tag}</span>
-                  <h3 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 900, color: 'var(--text-primary)', margin: 0, lineHeight: 1.2 }}>{selected.title}</h3>
+                  <div className="career-modal-tags">
+                    <span className="career-modal-tag" style={{
+                      background: `${selected.accent}22`, color: selected.accent,
+                      border: `1px solid ${selected.accent}40`
+                    }}>{selected.tag}</span>
+                  </div>
+                  <h3 className="career-modal-title">{selected.title}</h3>
                 </div>
               </div>
             </div>
 
             {/* Service Stats Row */}
-            <div style={{ display: 'flex', borderBottom: '1px solid var(--input-border)', background: 'var(--glass-bg)', flexWrap: 'wrap' }}>
-              <div style={{ flex: '1 1 150px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', display: 'flex', alignItems: 'center', gap: '1rem', borderRight: '1px solid var(--input-border)' }}>
+            <div className="career-modal-stats-row">
+              <div className="career-modal-stat-item">
                 <Clock size={24} color={selected.accent} />
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Delivery Time</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.stats.time}</div>
+                  <div className="career-modal-stat-label">Delivery Time</div>
+                  <div className="career-modal-stat-value">{selected.stats.time}</div>
                 </div>
               </div>
-              <div style={{ flex: '1 1 150px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', display: 'flex', alignItems: 'center', gap: '1rem', borderRight: '1px solid var(--input-border)' }}>
+              <div className="career-modal-stat-item">
                 <Repeat size={24} color={selected.accent} />
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Revisions</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.stats.revisions}</div>
+                  <div className="career-modal-stat-label">Revisions</div>
+                  <div className="career-modal-stat-value">{selected.stats.revisions}</div>
                 </div>
               </div>
-              <div style={{ flex: '1 1 150px', padding: '1rem clamp(1rem, 4vw, 2.5rem)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div className="career-modal-stat-item" style={{ borderRight: 'none' }}>
                 <ShieldCheck size={24} color={selected.accent} />
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Support</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selected.stats.support}</div>
+                  <div className="career-modal-stat-label">Support</div>
+                  <div className="career-modal-stat-value">{selected.stats.support}</div>
                 </div>
               </div>
             </div>
 
             {/* Scrollable Content */}
-            <div style={{ padding: 'clamp(1.25rem, 4vw, 2.5rem)', overflowY: 'auto', flex: 1, WebkitOverflowScrolling: 'touch' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+            <div className="career-modal-body" style={{ overflowY: 'auto', flex: 1, WebkitOverflowScrolling: 'touch' }}>
+              <div className="career-modal-grid">
                 
                 {/* Left Column: Description & Includes */}
                 <div>
