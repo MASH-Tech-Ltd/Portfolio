@@ -22,11 +22,11 @@ const serviceLinks = [
 ];
 
 const socials = [
-  { icon: <Facebook size={17} />, href: '#', label: 'Facebook' },
+  { icon: <Facebook size={17} />, href: 'https://www.facebook.com/profile.php?id=61590530854738', label: 'Facebook' },
   { icon: <Twitter size={17} />, href: '#', label: 'Twitter' },
   { icon: <Instagram size={17} />, href: '#', label: 'Instagram' },
-  { icon: <Linkedin size={17} />, href: '#', label: 'LinkedIn' },
-  { icon: <Github size={17} />, href: '#', label: 'GitHub' },
+  { icon: <Linkedin size={17} />, href: 'https://www.linkedin.com/company/117904174/', label: 'LinkedIn' },
+  // { icon: <Github size={17} />, href: '#', label: 'GitHub' },
 ];
 
 export default function Footer() {
