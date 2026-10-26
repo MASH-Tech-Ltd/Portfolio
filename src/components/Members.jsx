@@ -3,70 +3,70 @@ import { Github, Linkedin, Twitter, X, Mail, Briefcase, FolderGit2, Users } from
 
 const members = [
   {
-    name: 'Mashiur Rahman',
-    role: 'Founder & CEO',
-    initials: 'MR',
+    name: 'Sabbir Hossain',
+    role: 'Founder',
+    initials: 'SH',
     color: '#3b82f6',
-    bio: 'Full-stack architect with 10+ years building scalable digital products.',
-    fullDesc: 'As the driving force behind MASH Tech Ltd, Mashiur brings a wealth of entrepreneurial experience and technical expertise. He is passionate about crafting scalable architectures and leading teams to deliver products that redefine industry standards.',
+    bio: 'Full-stack architect with 3+ years building scalable digital products.',
+    fullDesc: 'As the driving force behind MASH Tech Ltd, Sabbir brings a wealth of entrepreneurial experience and technical expertise. He is passionate about crafting scalable architectures and leading teams to deliver products that redefine industry standards.',
     skills: ['System Architecture', 'React', 'Node.js', 'AWS', 'Team Leadership'],
     socials: { github: '#', linkedin: '#', twitter: '#' },
-    stats: { exp: '10+ Yrs', projects: '120+', clients: '80+' }
+    stats: { exp: '3+ Yrs', projects: '23+', clients: '15+' }
   },
   {
-    name: 'Rakib Hossain',
-    role: 'Lead Backend Developer',
-    initials: 'RH',
+    name: 'Mohammad Mohsin',
+    role: 'Backend Developer',
+    initials: 'MM',
     color: '#8b5cf6',
     bio: 'Node.js & Express expert specializing in high-performance APIs and microservices.',
-    fullDesc: 'Rakib\'s deep understanding of server-side technologies ensures our applications are always fast, secure, and reliable. He focuses on building robust microservices that seamlessly handle complex business logic for our enterprise clients.',
-    skills: ['Node.js', 'Express', 'MongoDB', 'GraphQL', 'Microservices'],
+    fullDesc: 'Mohsin\'s deep understanding of server-side technologies ensures our applications are always fast, secure, and reliable. He focuses on building robust microservices that seamlessly handle complex business logic for our enterprise clients.',
+    skills: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'AI Integration'],
     socials: { github: '#', linkedin: '#', twitter: '#' },
-    stats: { exp: '6+ Yrs', projects: '50+', clients: '30+' }
+    stats: { exp: '2+ Yrs', projects: '20+', clients: '15+' }
   },
   {
-    name: 'Nadia Islam',
+    name: 'Modina Jahan',
     role: 'UI/UX Designer',
-    initials: 'NI',
+    initials: 'MJ',
     color: '#ec4899',
     bio: 'Creating stunning, user-centric designs with Figma. Pixel-perfect every time.',
-    fullDesc: 'Nadia believes that design is not just what it looks like, but how it works. She meticulously bridges the gap between aesthetic appeal and intuitive functionality, ensuring a delightful user journey in every product she crafts.',
+    fullDesc: 'Modina believes that design is not just what it looks like, but how it works. She meticulously bridges the gap between aesthetic appeal and intuitive functionality, ensuring a delightful user journey in every product she crafts.',
     skills: ['Figma', 'Prototyping', 'User Research', 'Design Systems', 'Wireframing'],
     socials: { github: '#', linkedin: '#', twitter: '#' },
     stats: { exp: '4+ Yrs', projects: '65+', clients: '45+' }
   },
   {
-    name: 'Sabbir Ahmed',
+    name: 'Tanvir Ahmed',
     role: 'Frontend Developer',
-    initials: 'SA',
+    initials: 'TA',
     color: '#06b6d4',
     bio: 'React & Next.js specialist building blazing-fast, responsive web applications.',
-    fullDesc: 'With an eye for detail and a passion for modern web technologies, Sabbir transforms static designs into fluid, interactive experiences. He is obsessed with web performance, accessibility, and clean component architectures.',
+    fullDesc: 'With an eye for detail and a passion for modern web technologies, Tanvir transforms static designs into fluid, interactive experiences. He is obsessed with web performance, accessibility, and clean component architectures.',
     skills: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Redux'],
     socials: { github: '#', linkedin: '#', twitter: '#' },
-    stats: { exp: '5+ Yrs', projects: '40+', clients: '25+' }
+    stats: { exp: '1+ Yrs', projects: '10+', clients: '5+' }
   },
   {
-    name: 'Tasnim Akter',
+    name: 'Noyon Madbar',
     role: 'Mobile App Developer',
-    initials: 'TA',
+    initials: 'NM',
     color: '#10b981',
     bio: 'Flutter enthusiast delivering beautiful cross-platform mobile experiences.',
-    fullDesc: 'Tasnim thrives in the mobile ecosystem, bringing innovative app ideas to life on both iOS and Android. Her dedication to native-like performance and buttery-smooth animations sets our mobile applications apart from the competition.',
+    fullDesc: 'Noyon thrives in the mobile ecosystem, bringing innovative app ideas to life on both iOS and Android. His dedication to native-like performance and buttery-smooth animations sets our mobile applications apart from the competition.',
     skills: ['Flutter', 'Dart', 'Firebase', 'State Management', 'iOS & Android'],
     socials: { github: '#', linkedin: '#', twitter: '#' },
     stats: { exp: '3+ Yrs', projects: '20+', clients: '15+' }
   },
   {
-    name: 'Farhan Kabir',
-    role: 'DevOps & Deployment',
+    name: 'Riajul Kashem',
+    role: 'Full Stack Developer',
     initials: 'FK',
     color: '#f59e0b',
-    bio: 'VPS, cloud infrastructure, CI/CD pipelines and server management expert.',
-    fullDesc: 'Farhan is the guardian of our infrastructure. His rigorous approach to continuous integration, server hardening, and automated deployments ensures zero downtime and uncompromising security for all our deployed platforms.',
-    skills: ['Docker', 'AWS', 'CI/CD Pipelines', 'Linux Server', 'Nginx'],
+    bio: 'MERN Stack expert with 3+ years of experience in building scalable web applications.',
+    fullDesc: 'Farhan is a MERN Stack expert with 3+ years of experience in building scalable web applications.',
+    skills: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS', 'Firebase', 'Python',],
     socials: { github: '#', linkedin: '#', twitter: '#' },
-    stats: { exp: '5+ Yrs', projects: '80+', clients: '50+' }
+    stats: { exp: '3+ Yrs', projects: '20+', clients: '15+' }
   }
 ];
 

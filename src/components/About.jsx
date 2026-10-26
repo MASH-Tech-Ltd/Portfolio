@@ -1,10 +1,10 @@
 import { Trophy, FolderCheck, Smile, Award } from 'lucide-react';
 
 const stats = [
-  { value: '10+', label: 'Years of Experience', icon: <Trophy size={32} /> },
-  { value: '666+', label: 'Projects Completed', icon: <FolderCheck size={32} /> },
-  { value: '555+', label: 'Satisfied Clients', icon: <Smile size={32} /> },
-  { value: '10+', label: 'Awards Received', icon: <Award size={32} /> },
+  { value: '2+', label: 'Years of Experience', icon: <Trophy size={32} /> },
+  { value: '10+', label: 'Projects Completed', icon: <FolderCheck size={32} /> },
+  { value: '10+', label: 'Satisfied Clients', icon: <Smile size={32} /> },
+  { value: '5+', label: 'Happy Team', icon: <Award size={32} /> },
 ];
 
 import { Link } from 'react-router-dom';

@@ -45,6 +45,13 @@ export default function Footer() {
           <div style={{ maxWidth: 280 }}>
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', marginBottom: '1rem' }}>
               <img src="/logo.png" alt="MASH Tech Ltd" style={{ height: 44, width: 'auto', objectFit: 'contain', borderRadius: '50%' }} />
+              <span style={{
+                fontSize: '1.1rem',
+                fontWeight: 700,
+                letterSpacing: '0.02em',
+                color: 'var(--text-primary)',
+                lineHeight: 1
+              }}>MASH Tech</span>
             </Link>
             <p style={{ color: '#475569', fontSize: '.875rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
               Smart digital solutions for businesses of all sizes. We turn ideas into powerful digital experiences.
@@ -64,6 +71,30 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            {/* Address */}
+            <a
+              href="https://maps.google.com/?q=Badda+Link+Road,+Gulshan,+Dhaka+1212"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'flex-start',
+                gap: '8px',
+                marginTop: '1.25rem',
+                color: 'var(--text-secondary)',
+                textDecoration: 'none',
+                fontSize: '.82rem',
+                lineHeight: 1.6,
+                transition: 'color .2s'
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = '#3b82f6'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 2, flexShrink: 0 }}>
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Badda Link Road, Gulshan,<br />Dhaka, 1212</span>
+            </a>
           </div>
 
           {/* Quick Links */}

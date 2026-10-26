@@ -16,7 +16,7 @@ export default function Home() {
     <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-color)' }}>
       <Navbar />
       <Hero />
-      <Brands />
+      {/* <Brands /> */}
       <Services minimal={true} />
       <TechStack />
       <About minimal={true} />
