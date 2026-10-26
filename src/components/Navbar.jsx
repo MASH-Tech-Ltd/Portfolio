@@ -45,6 +45,13 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
             <img src="/logo.png" alt="MASH Tech Ltd" style={{ height: 48, width: 'auto', objectFit: 'contain', borderRadius: '50%' }} />
+            <span style={{
+              fontSize: '1.2rem',
+              fontWeight: 700,
+              letterSpacing: '0.02em',
+              color: 'var(--text-primary)',
+              lineHeight: 1
+            }}>MASH Tech</span>
           </Link>
 
           {/* Desktop links */}

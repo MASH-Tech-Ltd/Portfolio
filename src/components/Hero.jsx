@@ -105,7 +105,7 @@ export default function Hero() {
 
         {/* Badge */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
-          <span className="section-chip">✦ MASH Tech Ltd — Your Digital Partner</span>
+          <span className="section-chip">✦ MASH Tech — Your Digital Partner</span>
         </div>
 
         {/* Two-column grid */}

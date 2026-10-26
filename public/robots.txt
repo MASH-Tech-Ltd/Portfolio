@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block admin/auth pages from indexing
+Disallow: /admin
+Disallow: /login
+Disallow: /forgot-password
+
+Sitemap: https://mashtech.masheco.tech/sitemap.xml
